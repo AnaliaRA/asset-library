@@ -4,17 +4,19 @@ import React from 'react';
 
 interface SearchBarProps {
   onSearch: (searchTerm: string) => void;
+  placeholder?: string;
 }
 
-const SearchBar = ({ onSearch }: SearchBarProps) => {
+const SearchBar = ({ onSearch, placeholder = 'Type to search...' }: SearchBarProps) => {
   return (
-    <div className="w-full max-w-2xl">
+    <div className="w-full max-w-2xl" data-testid="search-container">
       <div className="relative">
         <input
           type="text"
           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          placeholder="Type to search..."
+          placeholder={placeholder}
           onChange={e => onSearch(e.target.value)}
+          data-testid="search-input"
         />
         <div className="absolute inset-y-0 right-0 flex items-center pr-3">
           <svg
@@ -25,6 +27,7 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
             strokeWidth="2"
             viewBox="0 0 24 24"
             stroke="currentColor"
+            data-testid="search-icon"
           >
             <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>

@@ -1,3 +1,4 @@
+# Build output
 .next
 node_modules
 public
@@ -5,4 +6,12 @@ build
 dist
 coverage
 *.log
-package-lock.json 
+package-lock.json
+
+# Storybook files
+**/*.stories.tsx
+**/*.stories.ts
+**/*.stories.jsx
+**/*.stories.js
+storybook-static
+.storybook 

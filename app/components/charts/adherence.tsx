@@ -1,84 +1,48 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
+  BarChart,
+  Bar,
   XAxis,
   YAxis,
-  Tooltip,
   CartesianGrid,
+  Tooltip,
+  Legend,
   ResponsiveContainer,
-  LineChart,
-  Line,
 } from 'recharts';
 import { Asset } from '@/types/asset';
 
-interface AdherenceData {
-  month: string;
-  adherence: number;
+interface AdherenceChartProps {
+  asset: Asset;
 }
 
-const AdherenceChart: React.FC<{ asset: Asset }> = ({ asset }) => {
-  const [chartData, setChartData] = useState<AdherenceData[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchAdherenceData = async () => {
-      try {
-        setLoading(true);
-        const mockData = [
-          { month: 'Jan', adherence: 78 },
-          { month: 'Feb', adherence: 82 },
-          { month: 'Mar', adherence: 85 },
-          { month: 'Apr', adherence: 87 },
-          { month: 'May', adherence: 90 },
-          { month: 'Jun', adherence: 88 },
-        ];
-        setChartData(mockData);
-      } catch (err) {
-        setError('Failed to load engagement data');
-        console.error('Error fetching engagement data:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchAdherenceData();
-  }, [asset.id]);
-
-  if (loading) {
-    return (
-      <div className="bg-white shadow-md rounded-lg p-4">
-        <div className="animate-pulse">
-          <div className="h-4 bg-gray-200 rounded w-1/4 mb-4"></div>
-          <div className="h-64 bg-gray-200 rounded"></div>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="bg-white shadow-md rounded-lg p-4">
-        <div className="text-red-500">{error}</div>
-      </div>
-    );
-  }
+const AdherenceChart: React.FC<AdherenceChartProps> = ({ asset }) => {
+  const data = [
+    { category: 'Guidelines', adherence: 85 },
+    { category: 'Protocol', adherence: 75 },
+    { category: 'Standards', adherence: 90 },
+    { category: 'Best Practices', adherence: 82 },
+  ];
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-4">
-      <h2 className="text-lg font-semibold mb-2">Patient Adherence Rate</h2>
-      <ResponsiveContainer width="100%" height={200}>
-        <LineChart data={chartData}>
+    <div className="w-full h-[300px] p-4">
+      <h3 className="text-lg font-semibold mb-4">{asset.name} Adherence Metrics</h3>
+      <ResponsiveContainer width="100%" height="100%">
+        <BarChart
+          data={data}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="month" />
-          <YAxis domain={[0, 100]} />
+          <XAxis dataKey="category" />
+          <YAxis />
           <Tooltip />
-          <Line
-            type="monotone"
-            dataKey="adherence"
-            stroke="#4CAF50"
-            strokeWidth={2}
-          />
-        </LineChart>
+          <Legend />
+          <Bar dataKey="adherence" fill="#82ca9d" />
+        </BarChart>
       </ResponsiveContainer>
     </div>
   );

@@ -1,79 +1,56 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
+  LineChart,
+  Line,
   XAxis,
   YAxis,
-  Tooltip,
   CartesianGrid,
+  Tooltip,
+  Legend,
   ResponsiveContainer,
 } from 'recharts';
-import { BarChart as RechartsBarChart, Bar, Legend } from 'recharts';
 import { Asset } from '@/types/asset';
 
-interface EngagementData {
-  month: string;
-  interactions: number;
+interface EngagementChartProps {
+  asset: Asset;
 }
 
-const EngagementChart: React.FC<{ asset: Asset }> = ({ asset }) => {
-  const [chartData, setChartData] = useState<EngagementData[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchEngagementData = async () => {
-      try {
-        setLoading(true);
-        const mockData = [
-          { month: 'Jan', interactions: Math.floor(Math.random() * 300) },
-          { month: 'Feb', interactions: Math.floor(Math.random() * 300) },
-          { month: 'Mar', interactions: Math.floor(Math.random() * 300) },
-          { month: 'Apr', interactions: Math.floor(Math.random() * 300) },
-          { month: 'May', interactions: Math.floor(Math.random() * 300) },
-          { month: 'Jun', interactions: Math.floor(Math.random() * 300) },
-        ];
-        setChartData(mockData);
-      } catch (err) {
-        setError('Failed to load engagement data');
-        console.error('Error fetching engagement data:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchEngagementData();
-  }, [asset.id]);
-
-  if (loading) {
-    return (
-      <div className="bg-white shadow-md rounded-lg p-4">
-        <div className="animate-pulse">
-          <div className="h-4 bg-gray-200 rounded w-1/4 mb-4"></div>
-          <div className="h-64 bg-gray-200 rounded"></div>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="bg-white shadow-md rounded-lg p-4">
-        <div className="text-red-500">{error}</div>
-      </div>
-    );
-  }
+const EngagementChart: React.FC<EngagementChartProps> = ({ asset }) => {
+  const data = [
+    { month: 'Jan', engagement: 65 },
+    { month: 'Feb', engagement: 59 },
+    { month: 'Mar', engagement: 80 },
+    { month: 'Apr', engagement: 81 },
+    { month: 'May', engagement: 56 },
+    { month: 'Jun', engagement: 55 },
+  ];
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-4">
-      <h2 className="text-lg font-semibold mb-2">Physician Engagement</h2>
-      <ResponsiveContainer width="100%" height={200}>
-        <RechartsBarChart data={chartData}>
+    <div className="w-full h-[300px] p-4" data-testid="engagement-chart">
+      <h3 className="text-lg font-semibold mb-4">{asset.name} Engagement Over Time</h3>
+      <p className="text-sm text-gray-600 mb-2">{asset.name}</p>
+      <ResponsiveContainer width="100%" height="100%">
+        <LineChart
+          data={data}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="month" />
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="interactions" fill="#2196F3" />
-        </RechartsBarChart>
+          <Line
+            type="monotone"
+            dataKey="engagement"
+            stroke="#8884d8"
+            activeDot={{ r: 8 }}
+          />
+        </LineChart>
       </ResponsiveContainer>
     </div>
   );

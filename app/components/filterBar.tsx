@@ -25,8 +25,13 @@ const Navigation = ({ onFilterChange }: NavigationProps) => {
   const searchParams = useSearchParams();
   const currentFilter = searchParams.get('filter') || 'featured';
 
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, type: string) => {
+    e.preventDefault();
+    onFilterChange(type);
+  };
+
   return (
-    <nav className="flex justify-center space-x-4 mt-4 mb-8">
+    <nav className="flex justify-center space-x-4 mt-4 mb-8" data-testid="filter-nav">
       {navItems.map(item => (
         <Link
           key={item.label}
@@ -36,7 +41,8 @@ const Navigation = ({ onFilterChange }: NavigationProps) => {
               ? 'text-gray-900 font-semibold'
               : 'text-gray-600 hover:text-gray-900'
           }`}
-          onClick={() => onFilterChange(item.type)}
+          onClick={(e) => handleClick(e, item.type)}
+          data-testid={`filter-${item.type}`}
         >
           {item.label}
         </Link>
