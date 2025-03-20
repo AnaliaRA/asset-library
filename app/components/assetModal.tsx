@@ -18,12 +18,12 @@ const AssetModal: React.FC<AssetModalProps> = ({ asset, isOpen, onClose }) => {
 
   return (
     <div 
-      className="fixed inset-0 bg-opacity-15 flex items-center justify-center z-50"
+      className="fixed inset-0 bg-black bg-opacity-25 flex items-start justify-center z-50 p-4 overflow-y-auto"
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
     >
-      <div className="bg-white rounded-lg w-full max-w-2xl mx-4 overflow-hidden border border-gray-200 shadow-xl">
+      <div className="relative bg-white rounded-lg w-full max-w-2xl my-8 border border-gray-200 shadow-xl">
         <div className="flex flex-row-reverse p-6">
           <div className="flex items-center space-x-2">
             <button
