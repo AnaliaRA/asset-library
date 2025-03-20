@@ -1,0 +1,430 @@
+{
+  "assets": [
+    {
+      "id": "dv_001",
+      "name": "Sales Performance Dashboard",
+      "type": "data_viz",
+      "description": "Interactive dashboard showing sales metrics, trends, and KPIs across different regions and product categories",
+      "creationDate": "2024-03-20",
+      "updatedDate": "2024-03-20",
+      "businessQuestions": [
+        "What are our top performing products?",
+        "Which regions show the strongest growth?",
+        "How do sales trends compare year-over-year?"
+      ],
+      "numberOfPages": 5,
+      "visuals": [
+        "Revenue trend line chart",
+        "Regional sales heat map",
+        "Product category bar chart",
+        "Customer segment pie chart",
+        "Sales funnel visualization"
+      ],
+      "hits": 0
+    },
+    {
+      "id": "dv_002",
+      "name": "Customer Analytics Dashboard",
+      "type": "data_viz",
+      "description": "Comprehensive customer behavior analysis dashboard with segmentation and engagement metrics",
+      "creationDate": "2024-03-20",
+      "updatedDate": "2024-03-20",
+      "businessQuestions": [
+        "What are our customer segments?",
+        "How do customers interact with our products?",
+        "What drives customer satisfaction?"
+      ],
+      "numberOfPages": 4,
+      "visuals": [
+        "Customer journey map",
+        "Segmentation scatter plot",
+        "Engagement metrics timeline",
+        "Satisfaction score distribution"
+      ],
+      "hits": 0
+    },
+    {
+      "id": "dv_003",
+      "name": "Supply Chain Analytics",
+      "type": "data_viz",
+      "description": "Real-time supply chain monitoring dashboard with inventory levels, delivery times, and supplier performance",
+      "creationDate": "2024-03-20",
+      "updatedDate": "2024-03-20",
+      "businessQuestions": [
+        "Where are our inventory bottlenecks?",
+        "How efficient is our delivery network?",
+        "Which suppliers perform best?"
+      ],
+      "numberOfPages": 6,
+      "visuals": [
+        "Inventory level gauge charts",
+        "Delivery route map",
+        "Supplier performance matrix",
+        "Stock level trends",
+        "Warehouse capacity heat map",
+        "Delivery time distribution"
+      ],
+      "hits": 0
+    },
+    {
+      "id": "dv_004",
+      "name": "Financial Performance Overview",
+      "type": "data_viz",
+      "description": "Financial metrics dashboard with revenue, expenses, and profitability analysis",
+      "creationDate": "2024-03-20",
+      "updatedDate": "2024-03-20",
+      "businessQuestions": [
+        "What is our profit margin trend?",
+        "How do expenses compare to budget?",
+        "Which departments are most profitable?"
+      ],
+      "numberOfPages": 4,
+      "visuals": [
+        "Revenue waterfall chart",
+        "Expense breakdown pie chart",
+        "Profit margin trend line",
+        "Department performance matrix"
+      ],
+      "hits": 0
+    },
+    {
+      "id": "dv_005",
+      "name": "Marketing Campaign Analytics",
+      "type": "data_viz",
+      "description": "Marketing campaign performance dashboard with ROI and channel effectiveness metrics",
+      "creationDate": "2024-03-20",
+      "updatedDate": "2024-03-20",
+      "businessQuestions": [
+        "Which channels have the highest ROI?",
+        "How effective are our campaigns?",
+        "What drives customer acquisition?"
+      ],
+      "numberOfPages": 5,
+      "visuals": [
+        "Campaign performance bar chart",
+        "Channel ROI comparison",
+        "Customer acquisition funnel",
+        "Marketing spend allocation",
+        "Campaign timeline view"
+      ],
+      "hits": 0
+    },
+    {
+      "id": "dv_006",
+      "name": "Product Performance Analysis",
+      "type": "data_viz",
+      "description": "Product performance dashboard with usage metrics, customer feedback, and market position",
+      "creationDate": "2024-03-20",
+      "updatedDate": "2024-03-20",
+      "businessQuestions": [
+        "How do products perform in the market?",
+        "What features are most used?",
+        "How satisfied are customers?"
+      ],
+      "numberOfPages": 4,
+      "visuals": [
+        "Product usage heat map",
+        "Feature adoption curve",
+        "Customer satisfaction radar chart",
+        "Market position scatter plot"
+      ],
+      "hits": 0
+    },
+    {
+      "id": "dv_007",
+      "name": "Employee Performance Dashboard",
+      "type": "data_viz",
+      "description": "HR analytics dashboard with employee performance, engagement, and retention metrics",
+      "creationDate": "2024-03-20",
+      "updatedDate": "2024-03-20",
+      "businessQuestions": [
+        "How is employee performance distributed?",
+        "What drives employee engagement?",
+        "Which departments have retention issues?"
+      ],
+      "numberOfPages": 4,
+      "visuals": [
+        "Performance distribution chart",
+        "Engagement score trends",
+        "Department retention rates",
+        "Skills matrix visualization"
+      ],
+      "hits": 0
+    },
+    {
+      "id": "dv_008",
+      "name": "Website Analytics Overview",
+      "type": "data_viz",
+      "description": "Website performance dashboard with traffic, user behavior, and conversion metrics",
+      "creationDate": "2024-03-20",
+      "updatedDate": "2024-03-20",
+      "businessQuestions": [
+        "How do users navigate our site?",
+        "What content drives engagement?",
+        "Where do users drop off?"
+      ],
+      "numberOfPages": 5,
+      "visuals": [
+        "User journey flow diagram",
+        "Page performance heat map",
+        "Traffic source pie chart",
+        "Conversion funnel",
+        "Time on page distribution"
+      ],
+      "hits": 0
+    },
+    {
+      "id": "dv_009",
+      "name": "Risk Assessment Dashboard",
+      "type": "data_viz",
+      "description": "Risk monitoring dashboard with threat assessment, compliance status, and mitigation tracking",
+      "creationDate": "2024-03-20",
+      "updatedDate": "2024-03-20",
+      "businessQuestions": [
+        "What are our key risk areas?",
+        "How compliant are we?",
+        "What mitigation actions are needed?"
+      ],
+      "numberOfPages": 4,
+      "visuals": [
+        "Risk matrix heat map",
+        "Compliance status gauge",
+        "Mitigation timeline",
+        "Risk trend analysis"
+      ],
+      "hits": 0
+    },
+    {
+      "id": "dv_010",
+      "name": "Project Portfolio Overview",
+      "type": "data_viz",
+      "description": "Project management dashboard with status, timeline, and resource allocation",
+      "creationDate": "2024-03-20",
+      "updatedDate": "2024-03-20",
+      "businessQuestions": [
+        "What is our project status?",
+        "How are resources allocated?",
+        "Which projects are at risk?"
+      ],
+      "numberOfPages": 4,
+      "visuals": [
+        "Project timeline Gantt chart",
+        "Resource allocation matrix",
+        "Risk status bubble chart",
+        "Budget tracking bar chart"
+      ],
+      "hits": 0
+    },
+    {
+      "id": "dv_011",
+      "name": "Customer Service Analytics",
+      "type": "data_viz",
+      "description": "Customer service performance dashboard with response times, satisfaction scores, and issue tracking",
+      "creationDate": "2024-03-20",
+      "updatedDate": "2024-03-20",
+      "businessQuestions": [
+        "How efficient is our support?",
+        "What are common issues?",
+        "How satisfied are customers?"
+      ],
+      "numberOfPages": 4,
+      "visuals": [
+        "Response time trend",
+        "Issue category distribution",
+        "Agent performance matrix",
+        "Customer satisfaction trends"
+      ],
+      "hits": 0
+    },
+    {
+      "id": "dv_012",
+      "name": "Market Research Dashboard",
+      "type": "data_viz",
+      "description": "Market analysis dashboard with competitor tracking, market share, and trend analysis",
+      "creationDate": "2024-03-20",
+      "updatedDate": "2024-03-20",
+      "businessQuestions": [
+        "What is our market position?",
+        "How do we compare to competitors?",
+        "What are market trends?"
+      ],
+      "numberOfPages": 5,
+      "visuals": [
+        "Market share pie chart",
+        "Competitor comparison matrix",
+        "Trend analysis line chart",
+        "Market opportunity map",
+        "Growth potential heat map"
+      ],
+      "hits": 0
+    },
+    {
+      "id": "dv_013",
+      "name": "Quality Control Analytics",
+      "type": "data_viz",
+      "description": "Quality metrics dashboard with defect tracking, process control, and improvement trends",
+      "creationDate": "2024-03-20",
+      "updatedDate": "2024-03-20",
+      "businessQuestions": [
+        "What is our defect rate?",
+        "How stable are our processes?",
+        "Where do issues occur?"
+      ],
+      "numberOfPages": 4,
+      "visuals": [
+        "Control chart",
+        "Defect distribution",
+        "Process capability analysis",
+        "Improvement trend line"
+      ],
+      "hits": 0
+    },
+    {
+      "id": "dv_014",
+      "name": "Inventory Management Dashboard",
+      "type": "data_viz",
+      "description": "Inventory tracking dashboard with stock levels, turnover rates, and forecasting",
+      "creationDate": "2024-03-20",
+      "updatedDate": "2024-03-20",
+      "businessQuestions": [
+        "What is our stock status?",
+        "How fast do items turn over?",
+        "What should we reorder?"
+      ],
+      "numberOfPages": 4,
+      "visuals": [
+        "Stock level gauge",
+        "Turnover rate bar chart",
+        "Reorder point analysis",
+        "Forecast trend line"
+      ],
+      "hits": 0
+    },
+    {
+      "id": "dv_015",
+      "name": "Energy Consumption Analysis",
+      "type": "data_viz",
+      "description": "Energy usage dashboard with consumption patterns, efficiency metrics, and cost analysis",
+      "creationDate": "2024-03-20",
+      "updatedDate": "2024-03-20",
+      "businessQuestions": [
+        "How efficient is our energy use?",
+        "What drives consumption?",
+        "How can we reduce costs?"
+      ],
+      "numberOfPages": 4,
+      "visuals": [
+        "Usage pattern line chart",
+        "Cost distribution pie chart",
+        "Efficiency score gauge",
+        "Consumption heat map"
+      ],
+      "hits": 0
+    },
+    {
+      "id": "dv_016",
+      "name": "Research & Development Metrics",
+      "type": "data_viz",
+      "description": "R&D performance dashboard with innovation metrics, project progress, and resource allocation",
+      "creationDate": "2024-03-20",
+      "updatedDate": "2024-03-20",
+      "businessQuestions": [
+        "How innovative are we?",
+        "What is our R&D efficiency?",
+        "How do projects progress?"
+      ],
+      "numberOfPages": 4,
+      "visuals": [
+        "Innovation score radar chart",
+        "Project timeline view",
+        "Resource allocation matrix",
+        "Success rate trends"
+      ],
+      "hits": 0
+    },
+    {
+      "id": "dv_017",
+      "name": "Social Media Analytics",
+      "type": "data_viz",
+      "description": "Social media performance dashboard with engagement metrics, reach analysis, and content effectiveness",
+      "creationDate": "2024-03-20",
+      "updatedDate": "2024-03-20",
+      "businessQuestions": [
+        "What content performs best?",
+        "How engaged is our audience?",
+        "What is our social reach?"
+      ],
+      "numberOfPages": 4,
+      "visuals": [
+        "Engagement rate trends",
+        "Content performance matrix",
+        "Audience growth line chart",
+        "Platform comparison bar chart"
+      ],
+      "hits": 0
+    },
+    {
+      "id": "dv_018",
+      "name": "Training & Development Analytics",
+      "type": "data_viz",
+      "description": "Learning and development dashboard with training completion, skill gaps, and effectiveness metrics",
+      "creationDate": "2024-03-20",
+      "updatedDate": "2024-03-20",
+      "businessQuestions": [
+        "How effective is our training?",
+        "What skills need development?",
+        "How do employees progress?"
+      ],
+      "numberOfPages": 4,
+      "visuals": [
+        "Completion rate trends",
+        "Skill gap analysis",
+        "Progress tracking chart",
+        "Effectiveness score distribution"
+      ],
+      "hits": 0
+    },
+    {
+      "id": "dv_019",
+      "name": "Environmental Impact Dashboard",
+      "type": "data_viz",
+      "description": "Environmental metrics dashboard with carbon footprint, waste management, and sustainability goals",
+      "creationDate": "2024-03-20",
+      "updatedDate": "2024-03-20",
+      "businessQuestions": [
+        "What is our carbon footprint?",
+        "How do we manage waste?",
+        "Are we meeting sustainability goals?"
+      ],
+      "numberOfPages": 4,
+      "visuals": [
+        "Carbon emissions trend",
+        "Waste management flow chart",
+        "Sustainability score gauge",
+        "Impact reduction timeline"
+      ],
+      "hits": 0
+    },
+    {
+      "id": "dv_020",
+      "name": "Competitive Intelligence Dashboard",
+      "type": "data_viz",
+      "description": "Competitor analysis dashboard with market position, product comparison, and strategic insights",
+      "creationDate": "2024-03-20",
+      "updatedDate": "2024-03-20",
+      "businessQuestions": [
+        "How do we compare to competitors?",
+        "What are market opportunities?",
+        "What are competitive threats?"
+      ],
+      "numberOfPages": 4,
+      "visuals": [
+        "Competitive positioning map",
+        "Product comparison matrix",
+        "Market opportunity radar",
+        "Threat assessment heat map"
+      ],
+      "hits": 0
+    }
+  ]
+} 

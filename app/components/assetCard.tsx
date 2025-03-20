@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { Asset } from '@/types/asset';
+import { Asset } from '../types/asset';
 import AssetModal from './assetModal';
 import DataVizModal from './dataVizModal';
 
@@ -32,13 +32,13 @@ const AssetCard: React.FC<{ asset: Asset }> = ({ asset }) => {
           <p className="text-sm text-gray-500 truncate" data-testid="asset-description">
             {asset.description}
           </p>
-          <p className="text-xs text-gray-400 mt-1" data-testid="asset-date">
+          <p className="text-xs text-gray-600 mt-1" data-testid="asset-date">
             {new Date(asset.updatedDate).toLocaleDateString()}
           </p>
         </div>
       </div>
 
-      {asset.type === 'dataViz' ? (
+      {asset.type === 'dataviz' ? (
         <DataVizModal
           asset={asset}
           isOpen={isModalOpen}

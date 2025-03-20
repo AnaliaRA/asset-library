@@ -8,11 +8,15 @@ const config: StorybookConfig = {
     "@storybook/addon-onboarding",
     "@storybook/addon-interactions",
     "@storybook/addon-coverage",
-    "@storybook/addon-jest"
   ],
   framework: {
     name: "@storybook/nextjs",
-    options: {},
+    options: {
+      builder: {
+        name: "@storybook/experimental-nextjs-vite",
+        options: {}
+      }
+    },
   },
   docs: {
     autodocs: "tag",

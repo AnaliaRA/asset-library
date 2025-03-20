@@ -1,6 +1,6 @@
 import React from 'react';
 import AssetCard from './assetCard';
-import { Asset } from '@/types/asset';
+import { Asset } from '@/app/types/asset';
 
 interface FeaturedProps {
   assets: Asset[];

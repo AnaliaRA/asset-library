@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Asset } from '@/types/asset';
+import { Asset } from '@/app/types/asset';
 import { useParams } from 'next/navigation';
 import EngagementChart from '@/app/components/charts/engagement';
 import AdherenceChart from '@/app/components/charts/adherence';

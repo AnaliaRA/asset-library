@@ -1,17 +1,29 @@
 import { NextResponse } from 'next/server';
-import assets from '@/app/data/assets.json';
+import { collection, query, getDocs, where } from 'firebase/firestore';
+import { db } from '@/app/firebase/config';
 
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const typeFilter = searchParams.get('type') || 'all';
+  try {
+    const { searchParams } = new URL(request.url);
+    const typeFilter = searchParams.get('type') || 'all';
 
-  if (typeFilter && typeFilter !== 'all') {
-    const filteredAssets = assets.filter(
-      (asset: { type: string }) =>
-        asset.type.toLowerCase() === typeFilter.toLowerCase()
+    const assetsRef = collection(db, 'assets');
+    const q = typeFilter !== 'all' 
+      ? query(assetsRef, where('type', '==', typeFilter.toLowerCase()))
+      : assetsRef;
+
+    const querySnapshot = await getDocs(q);
+    const assets = querySnapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
+
+    return NextResponse.json(assets);
+  } catch (error) {
+    console.error('Error fetching assets:', error);
+    return NextResponse.json(
+      { error: 'Failed to fetch assets' },
+      { status: 500 }
     );
-    return NextResponse.json(filteredAssets);
   }
-
-  return NextResponse.json(assets);
 }

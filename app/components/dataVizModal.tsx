@@ -1,5 +1,5 @@
 import React from 'react';
-import { Asset } from '@/types/asset';
+import { Asset } from '../types/asset';
 import EngagementChart from '@/app/components/charts/engagement';
 import AdherenceChart from '@/app/components/charts/adherence';
 import SatisfactionChart from '@/app/components/charts/satisfaction';

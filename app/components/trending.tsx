@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 import AssetCard from './assetCard';
-import { Asset } from '@/types/asset';
+import { Asset } from '@/app/types/asset';
 
 interface TrendingProps {
   assets: Asset[];
   currentFilter: string;
 }
 
+const ITEMS_PER_PREVIEW = 4;
+const HITS_THRESHOLD = 75;
+
 const Trending = ({ assets, currentFilter }: TrendingProps) => {
   const [showAll, setShowAll] = useState(false);
-  const popularAssets = assets.filter(asset => asset.hits > 10);
+  const popularAssets = assets.filter(asset => asset.hits > HITS_THRESHOLD);
   const sortedAssets = [...popularAssets].sort((a, b) => b.hits - a.hits);
-  const displayedAssets = showAll ? sortedAssets : sortedAssets.slice(0, 4);
+  const displayedAssets = showAll ? sortedAssets : sortedAssets.slice(0, ITEMS_PER_PREVIEW);
 
   return (
     <div className="w-full">

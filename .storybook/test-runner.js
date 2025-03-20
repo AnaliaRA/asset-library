@@ -1,46 +1,28 @@
-const { injectAxe, checkA11y } = require('axe-playwright');
+import { getStoryContext } from '@storybook/test-runner';
+import { injectAxe, checkA11y, configureAxe } from 'axe-playwright';
 
-module.exports = {
-  async preVisit(page, context) {
+/*
+ * See https://storybook.js.org/docs/writing-tests/test-runner#test-hook-api
+ * to learn more about the test-runner hooks API.
+ */
+export default {
+  async preRender(page) {
     await injectAxe(page);
-    try {
-      await page.coverage.startJSCoverage({
-        resetOnNavigation: false
-      });
-      await page.coverage.startCSSCoverage({
-        resetOnNavigation: false
-      });
-    } catch (error) {
-      if (!error.message.includes('already enabled')) {
-        throw error;
-      }
-    }
   },
-  async postVisit(page, context) {
-    // Wait for any animations to complete
-    await page.waitForTimeout(500);
-    
-    // Run accessibility tests
+  async postRender(page, context) {
+    // Get the entire context of a story, including parameters, args, argTypes, etc.
+    const storyContext = await getStoryContext(page, context);
+
+    // Apply story-level a11y rules
+    await configureAxe(page, {
+      rules: storyContext.parameters?.a11y?.config?.rules,
+    });
+
     await checkA11y(page, '#storybook-root', {
-      reportIncludedRules: true,
       detailedReport: true,
       detailedReportOptions: {
-        html: true
-      }
+        html: true,
+      },
     });
-    
-    try {
-      const jsCoverage = await page.coverage.stopJSCoverage();
-      const cssCoverage = await page.coverage.stopCSSCoverage();
-      
-      // Process coverage data as needed
-      return {
-        jsCoverage,
-        cssCoverage
-      };
-    } catch (error) {
-      console.warn('Error collecting coverage:', error);
-      return {};
-    }
-  }
+  },
 }; 
