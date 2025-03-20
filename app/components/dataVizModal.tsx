@@ -1,14 +1,20 @@
 import React from 'react';
 import { Asset } from '@/types/asset';
 import EngagementChart from '@/app/components/charts/engagement';
+import AdherenceChart from '@/app/components/charts/adherence';
+import SatisfactionChart from '@/app/components/charts/satisfaction';
 
-interface AssetModalProps {
+interface DataVizModalProps {
   asset: Asset;
   isOpen: boolean;
   onClose: () => void;
 }
 
-const AssetModal: React.FC<AssetModalProps> = ({ asset, isOpen, onClose }) => {
+const DataVizModal: React.FC<DataVizModalProps> = ({
+  asset,
+  isOpen,
+  onClose,
+}) => {
   if (!isOpen) return null;
 
   const copyLink = () => {
@@ -113,58 +119,16 @@ const AssetModal: React.FC<AssetModalProps> = ({ asset, isOpen, onClose }) => {
             </div>
           </div>
         </div>
-        <div className="px-3 py-2 grid grid-cols-4 gap-4 border-t border-b border-gray-200">
-          <div>
-            <div className="text-xl font-semibold">{asset.hits}</div>
-            <div className="text-sm text-gray-500">Used</div>
-          </div>
-          <div>
-            <div className="text-xl font-semibold">{asset.type}</div>
-            <div className="text-sm text-gray-500">Type</div>
-          </div>
-          <div>
-            <div className="text-xl font-semibold">6</div>
-            <div className="text-sm text-gray-500">Pages No.</div>
-          </div>
-          <div>
-            <div className="text-xl font-semibold">
-              {new Date(asset.creationDate).toLocaleDateString('en-US', {
-                month: '2-digit',
-                day: '2-digit',
-                year: 'numeric',
-              })}
-            </div>
-            <div className="text-sm text-gray-500">Last Updated</div>
-          </div>
-        </div>
-
-        <div className="p-6">
-          <h3 className="font-semibold mb-4">Description</h3>
-          <p className="text-gray-600">{asset.description}</p>
-        </div>
-
-        {asset.type.toLowerCase() === 'kpi' &&
-          asset.businessQuestions &&
-          asset.businessQuestions.length > 0 && (
-            <div className="px-6 pb-6">
-              <h3 className="font-semibold mb-4">Business Questions</h3>
-              <div className="grid grid-cols-2 gap-4">
-                {asset.businessQuestions.slice(0, 2).map((question, index) => (
-                  <div key={index} className="bg-gray-50 rounded-lg p-4">
-                    <div className="font-medium mb-2">Question {index + 1}</div>
-                    <div className="text-sm text-gray-600">{question}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-        {asset.hasVisuals && (
-          <div className="px-6">
+        <div className="overflow-x-auto">
+          <div className="flex flex-nowrap gap-4 p-6 min-w-max">
             <EngagementChart asset={asset} />
+            <AdherenceChart asset={asset} />
+            <SatisfactionChart asset={asset} />
+            <EngagementChart asset={asset} />
+            <AdherenceChart asset={asset} />
+            <SatisfactionChart asset={asset} />
           </div>
-        )}
-
+        </div>
         <div className="p-6 pt-2">
           <button className="w-full bg-gray-900 text-white py-3 rounded-lg flex items-center justify-center space-x-2 hover:bg-gray-800 transition-colors">
             <svg
@@ -188,4 +152,4 @@ const AssetModal: React.FC<AssetModalProps> = ({ asset, isOpen, onClose }) => {
   );
 };
 
-export default AssetModal;
+export default DataVizModal;

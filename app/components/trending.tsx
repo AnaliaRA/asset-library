@@ -4,11 +4,13 @@ import { Asset } from '@/app/hooks/useAssets';
 
 interface TrendingProps {
   assets: Asset[];
+  currentFilter: string;
 }
 
-const Trending = ({ assets }: TrendingProps) => {
+const Trending = ({ assets, currentFilter }: TrendingProps) => {
   const [showAll, setShowAll] = useState(false);
-  const sortedAssets = [...assets].sort((a, b) => b.hits - a.hits);
+  const popularAssets = assets.filter(asset => asset.hits > 10);
+  const sortedAssets = [...popularAssets].sort((a, b) => b.hits - a.hits);
   const displayedAssets = showAll ? sortedAssets : sortedAssets.slice(0, 4);
 
   return (
@@ -18,28 +20,28 @@ const Trending = ({ assets }: TrendingProps) => {
         <h3 className="text-sm text-gray-500">Most used assets this month</h3>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {displayedAssets.map((asset) => (
+        {displayedAssets.map(asset => (
           <AssetCard key={asset.name} asset={asset} />
         ))}
       </div>
-      {assets.length > 4 && (
+      {popularAssets.length > 4 && currentFilter === 'all' && (
         <div className="mt-6 text-center">
-          <button 
+          <button
             onClick={() => setShowAll(!showAll)}
             className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors"
           >
             <span>{showAll ? 'Show less' : 'See all trending assets'}</span>
-            <svg 
+            <svg
               className={`ml-2 w-4 h-4 transition-transform ${showAll ? 'rotate-90' : ''}`}
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24" 
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
                 d="M9 5l7 7-7 7"
               />
             </svg>
@@ -50,4 +52,4 @@ const Trending = ({ assets }: TrendingProps) => {
   );
 };
 
-export default Trending; 
+export default Trending;

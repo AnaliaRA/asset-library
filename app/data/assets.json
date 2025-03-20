@@ -10,6 +10,9 @@
       "What is the KPI trend?",
       "How does KPI compare to last year?",
       "What factors affect KPI?",
+      "What is the KPI trend for next year?",
+      "How does KPI compare to 2020?",
+      "What factors will affect KPI in 2025?",
       "How to improve KPI?"
     ],
     "amountOfPages": 5,
@@ -61,6 +64,9 @@
       "What is the KPI trend?",
       "How does KPI compare to last year?",
       "What factors affect KPI?",
+      "What is the KPI trend for next year?",
+      "How does KPI compare to 2020?",
+      "What factors will affect KPI in 2025?",
       "How to improve KPI?"
     ],
     "amountOfPages": 6,
@@ -68,6 +74,7 @@
     "hits": 3
   },
   {
+    "id": 5,
     "name": "Asset 5",
     "type": "kpi",
     "description": "This is a KPI asset description.",
@@ -84,6 +91,7 @@
     "hits": 19
   },
   {
+    "id": 6,
     "name": "Asset 6",
     "type": "kpi",
     "description": "This is a KPI asset description.",
@@ -100,6 +108,7 @@
     "hits": 5
   },
   {
+    "id": 7,
     "name": "Asset 7",
     "type": "kpi",
     "description": "This is a KPI asset description.",
@@ -116,6 +125,7 @@
     "hits": 8
   },
   {
+    "id": 8,
     "name": "Asset 8",
     "type": "kpi",
     "description": "This is a KPI asset description.",
@@ -132,6 +142,7 @@
     "hits": 11
   },
   {
+    "id": 9,
     "name": "Asset 9",
     "type": "kpi",
     "description": "This is a KPI asset description.",
@@ -148,6 +159,7 @@
     "hits": 2
   },
   {
+    "id": 10,
     "name": "Asset 10",
     "type": "kpi",
     "description": "This is a KPI asset description.",
@@ -164,6 +176,7 @@
     "hits": 17
   },
   {
+    "id": 11,
     "name": "Asset 11",
     "type": "layout",
     "description": "This is a layout asset description.",
@@ -180,6 +193,7 @@
     "hits": 6
   },
   {
+    "id": 12,
     "name": "Asset 12",
     "type": "layout",
     "description": "This is a layout asset description.",
@@ -196,6 +210,7 @@
     "hits": 14
   },
   {
+    "id": 13,
     "name": "Asset 13",
     "type": "layout",
     "description": "This is a layout asset description.",
@@ -212,6 +227,7 @@
     "hits": 9
   },
   {
+    "id": 14,
     "name": "Asset 14",
     "type": "layout",
     "description": "This is a layout asset description.",
@@ -228,6 +244,7 @@
     "hits": 0
   },
   {
+    "id": 15,
     "name": "Asset 15",
     "type": "layout",
     "description": "This is a layout asset description.",
@@ -244,6 +261,7 @@
     "hits": 20
   },
   {
+    "id": 16,
     "name": "Asset 16",
     "type": "layout",
     "description": "This is a layout asset description.",
@@ -260,6 +278,7 @@
     "hits": 4
   },
   {
+    "id": 17,
     "name": "Asset 17",
     "type": "layout",
     "description": "This is a layout asset description.",
@@ -276,6 +295,7 @@
     "hits": 13
   },
   {
+    "id": 18,
     "name": "Asset 18",
     "type": "layout",
     "description": "This is a layout asset description.",
@@ -292,6 +312,7 @@
     "hits": 1
   },
   {
+    "id": 19,
     "name": "Asset 19",
     "type": "layout",
     "description": "This is a layout asset description.",
@@ -308,6 +329,7 @@
     "hits": 18
   },
   {
+    "id": 20,
     "name": "Asset 20",
     "type": "layout",
     "description": "This is a layout asset description.",
@@ -324,6 +346,7 @@
     "hits": 10
   },
   {
+    "id": 21,
     "name": "Asset 21",
     "type": "storyboard",
     "description": "This is a storyboard asset description.",
@@ -340,6 +363,7 @@
     "hits": 16
   },
   {
+    "id": 22,
     "name": "Asset 22",
     "type": "storyboard",
     "description": "This is a storyboard asset description.",
@@ -356,6 +380,7 @@
     "hits": 12
   },
   {
+    "id": 23,
     "name": "Asset 23",
     "type": "storyboard",
     "description": "This is a storyboard asset description.",
@@ -372,6 +397,7 @@
     "hits": 7
   },
   {
+    "id": 24,
     "name": "Asset 24",
     "type": "storyboard",
     "description": "This is a storyboard asset description.",
@@ -388,6 +414,7 @@
     "hits": 3
   },
   {
+    "id": 25,
     "name": "Asset 25",
     "type": "storyboard",
     "description": "This is a storyboard asset description.",
@@ -404,6 +431,7 @@
     "hits": 5
   },
   {
+    "id": 26,
     "name": "Asset 26",
     "type": "storyboard",
     "description": "This is a storyboard asset description.",
@@ -420,6 +448,7 @@
     "hits": 0
   },
   {
+    "id": 27,
     "name": "Asset 27",
     "type": "storyboard",
     "description": "This is a storyboard asset description.",
@@ -436,6 +465,7 @@
     "hits": 19
   },
   {
+    "id": 28,
     "name": "Asset 28",
     "type": "storyboard",
     "description": "This is a storyboard asset description.",
@@ -452,6 +482,7 @@
     "hits": 11
   },
   {
+    "id": 29,
     "name": "Asset 29",
     "type": "storyboard",
     "description": "This is a storyboard asset description.",
@@ -468,6 +499,7 @@
     "hits": 2
   },
   {
+    "id": 30,
     "name": "Asset 30",
     "type": "storyboard",
     "description": "This is a storyboard asset description.",
@@ -482,5 +514,55 @@
     "amountOfPages": 10,
     "hasVisuals": false,
     "hits": 8
+  },
+  {
+    "id": 31,
+    "name": "Interactive Dashboard",
+    "type": "dataViz",
+    "description": "A comprehensive interactive dashboard showcasing key business metrics with dynamic filtering capabilities.",
+    "creationDate": "2024-01-15",
+    "updatedDate": "2024-03-20",
+    "hasVisuals": true,
+    "hits": 45
+  },
+  {
+    "id": 32,
+    "name": "Market Trends Visualization",
+    "type": "dataViz",
+    "description": "Dynamic visualization of market trends using advanced charting techniques and real-time data updates.",
+    "creationDate": "2024-02-01",
+    "updatedDate": "2024-03-18",
+    "hasVisuals": true,
+    "hits": 32
+  },
+  {
+    "id": 33,
+    "name": "Geographic Data Mapper",
+    "type": "dataViz",
+    "description": "Interactive map visualization showing geographic distribution of business data with drill-down capabilities.",
+    "creationDate": "2024-02-15",
+    "updatedDate": "2024-03-15",
+    "hasVisuals": true,
+    "hits": 28
+  },
+  {
+    "id": 34,
+    "name": "Performance Analytics Hub",
+    "type": "dataViz",
+    "description": "Centralized hub for performance analytics with multiple interactive visualizations and custom reporting options.",
+    "creationDate": "2024-03-01",
+    "updatedDate": "2024-03-10",
+    "hasVisuals": true,
+    "hits": 25
+  },
+  {
+    "id": 35,
+    "name": "Customer Insights Dashboard",
+    "type": "dataViz",
+    "description": "Visual representation of customer behavior patterns and engagement metrics with predictive analytics.",
+    "creationDate": "2024-03-05",
+    "updatedDate": "2024-03-08",
+    "hasVisuals": true,
+    "hits": 22
   }
-] 
+]

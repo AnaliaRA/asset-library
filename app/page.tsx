@@ -1,18 +1,21 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { useAssets } from "@/app/hooks/useAssets";
-import AssetCard from "@/app/components/assetCard";
-import Navigation from "@/app/components/filterBar";
-import SearchBar from "@/app/components/searchBar";
-import Featured from "@/app/components/featured";
-import Trending from "@/app/components/trending";
-import { useSearchParams } from "next/navigation";
+import { useState } from 'react';
+import { useAssets } from '@/app/hooks/useAssets';
+import AssetCard from '@/app/components/assetCard';
+import Navigation from '@/app/components/filterBar';
+import SearchBar from '@/app/components/searchBar';
+import Featured from '@/app/components/featured';
+import Trending from '@/app/components/trending';
+import { useSearchParams } from 'next/navigation';
 
 export default function Home() {
   const searchParams = useSearchParams();
-  const [currentFilter, setCurrentFilter] = useState(searchParams.get('filter') || 'all');
-  const { filteredAssets, isLoading, error, searchAssets } = useAssets(currentFilter);
+  const [currentFilter, setCurrentFilter] = useState(
+    searchParams.get('filter') || 'all'
+  );
+  const { filteredAssets, isLoading, error, searchAssets } =
+    useAssets(currentFilter);
 
   const handleFilterChange = (filter: string) => {
     setCurrentFilter(filter);
@@ -53,16 +56,23 @@ export default function Home() {
                 <Featured assets={filteredAssets} />
               </div>
               <div>
-                <Trending assets={filteredAssets} />
+                <Trending
+                  assets={filteredAssets}
+                  currentFilter={currentFilter}
+                />
               </div>
               {currentFilter !== 'all' && (
                 <div>
                   <div className="mb-4">
-                    <h2 className="text-2xl font-semibold">All {currentFilter} Assets</h2>
-                    <p className="text-sm text-gray-500">Browse all available {currentFilter} assets</p>
+                    <h2 className="text-2xl font-semibold">
+                      All {currentFilter} Assets
+                    </h2>
+                    <p className="text-sm text-gray-500">
+                      Browse all available {currentFilter} assets
+                    </p>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {filteredAssets.map((asset) => (
+                    {filteredAssets.map(asset => (
                       <AssetCard key={asset.name} asset={asset} />
                     ))}
                   </div>

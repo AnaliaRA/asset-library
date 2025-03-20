@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 import Link from 'next/link';
@@ -14,6 +14,7 @@ const navItems: NavItem[] = [
   { label: 'KPI', type: 'kpi' },
   { label: 'Layouts', type: 'layout' },
   { label: 'Storyboards', type: 'storyboard' },
+  { label: 'Data Viz', type: 'dataViz' },
 ];
 
 interface NavigationProps {
@@ -26,7 +27,7 @@ const Navigation = ({ onFilterChange }: NavigationProps) => {
 
   return (
     <nav className="flex justify-center space-x-4 mt-4 mb-8">
-      {navItems.map((item) => (
+      {navItems.map(item => (
         <Link
           key={item.label}
           href={`?filter=${item.type}`}
@@ -44,4 +45,4 @@ const Navigation = ({ onFilterChange }: NavigationProps) => {
   );
 };
 
-export default Navigation; 
+export default Navigation;

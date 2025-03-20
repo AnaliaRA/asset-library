@@ -9,4 +9,4 @@ export interface Asset {
   amountOfPages: number;
   hasVisuals: boolean;
   hits: number;
-} 
+}

@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { Asset } from '@/app/hooks/useAssets';
-import AssetModal from './AssetModal';
+import AssetModal from './assetModal';
+import DataVizModal from './dataVizModal';
 
 const AssetCard: React.FC<{ asset: Asset }> = ({ asset }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
-      <div 
+      <div
         className="flex items-start space-x-4 p-4 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors cursor-pointer"
         onClick={() => setIsModalOpen(true)}
       >
@@ -27,20 +28,26 @@ const AssetCard: React.FC<{ asset: Asset }> = ({ asset }) => {
           <h3 className="text-sm font-medium text-gray-900 truncate">
             {asset.name}
           </h3>
-          <p className="text-sm text-gray-500 truncate">
-            {asset.description}
-          </p>
+          <p className="text-sm text-gray-500 truncate">{asset.description}</p>
           <p className="text-xs text-gray-400 mt-1">
             {new Date(asset.updatedDate).toLocaleDateString()}
           </p>
         </div>
       </div>
 
-      <AssetModal
-        asset={asset}
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
+      {asset.type === 'dataViz' ? (
+        <DataVizModal
+          asset={asset}
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+        />
+      ) : (
+        <AssetModal
+          asset={asset}
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+        />
+      )}
     </>
   );
 };

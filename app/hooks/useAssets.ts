@@ -8,6 +8,8 @@ export interface Asset {
   creationDate: string;
   updatedDate: string;
   hits: number;
+  businessQuestions?: string[];
+  hasVisuals?: boolean;
 }
 
 interface UseAssetsReturn {
@@ -49,9 +51,10 @@ export function useAssets(typeFilter: string = 'featured'): UseAssetsReturn {
 
   useEffect(() => {
     if (searchTerm) {
-      const filtered = assets.filter(asset => 
-        asset.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        asset.description.toLowerCase().includes(searchTerm.toLowerCase())
+      const filtered = assets.filter(
+        asset =>
+          asset.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          asset.description.toLowerCase().includes(searchTerm.toLowerCase())
       );
       setFilteredAssets(filtered);
     } else {
@@ -68,6 +71,6 @@ export function useAssets(typeFilter: string = 'featured'): UseAssetsReturn {
     filteredAssets,
     isLoading,
     error,
-    searchAssets
+    searchAssets,
   };
-} 
+}

@@ -7,10 +7,11 @@ export async function GET(request: Request) {
 
   if (typeFilter && typeFilter !== 'all') {
     const filteredAssets = assets.filter(
-      (asset: { type: string }) => asset.type.toLowerCase() === typeFilter.toLowerCase()
+      (asset: { type: string }) =>
+        asset.type.toLowerCase() === typeFilter.toLowerCase()
     );
     return NextResponse.json(filteredAssets);
   }
-  
+
   return NextResponse.json(assets);
 }
