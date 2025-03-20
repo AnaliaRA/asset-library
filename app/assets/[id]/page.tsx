@@ -1,164 +1,127 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { Asset } from '@/app/types/asset';
 import { useParams } from 'next/navigation';
 import EngagementChart from '@/app/components/charts/engagement';
 import AdherenceChart from '@/app/components/charts/adherence';
 import SatisfactionChart from '@/app/components/charts/satisfaction';
+import LoadingSpinner from '@/app/components/loadingSpinner';
+import Error from '@/app/components/error';
+import NotFound from '@/app/components/notFound';
+import { useAssets } from '@/app/hooks/useAssets';
 
 export default function AssetPage() {
   const params = useParams();
-  const [asset, setAsset] = useState<Asset | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const { assets, isLoading, error } = useAssets();
 
-  useEffect(() => {
-    const fetchAsset = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-        const response = await fetch(`/api/assets/${params.id}`);
-        if (!response.ok) {
-          throw new Error('Failed to fetch asset');
-        }
-        const foundAsset = await response.json();
-
-        if ('error' in foundAsset) {
-          setError(foundAsset.error);
-          setAsset(null);
-        } else {
-          setAsset(foundAsset);
-        }
-      } catch (error) {
-        console.error('Error fetching asset:', error);
-        setError('Failed to load asset data');
-        setAsset(null);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (params.id) {
-      fetchAsset();
-    }
-  }, [params.id]);
-
-  if (loading) {
-    return (
-      <div className="container mx-auto p-4">
-        <div className="animate-pulse">
-          <div className="h-8 bg-gray-200 rounded w-1/4 mb-4"></div>
-          <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
-          <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-        </div>
-      </div>
-    );
+  if (isLoading) {
+    return <LoadingSpinner />;
   }
 
   if (error) {
-    return (
-      <div className="container mx-auto p-4">
-        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
-          {error}
-        </div>
-      </div>
-    );
+    return <Error message={error} />;
   }
 
+  const asset = assets.find(a => a.id === params.id);
+  
   if (!asset) {
-    return (
-      <div className="container mx-auto p-4">
-        <div className="bg-yellow-50 border border-yellow-200 text-yellow-700 px-4 py-3 rounded">
-          Asset not found
-        </div>
-      </div>
-    );
+    return <NotFound />;
   }
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
+    <main className="p-6 max-w-4xl mx-auto">
       <h1 className="text-3xl font-bold mb-6 text-center">{asset.name}</h1>
 
       <div className="grid gap-4 bg-white rounded-lg shadow p-6">
-        <div>
-          <h2 className="text-xl font-semibold mb-2 text-center">Details</h2>
-          <div className="grid grid-cols-2 gap-4">
+        <section aria-labelledby="details-heading" role="region">
+          <h2 id="details-heading" className="text-xl font-semibold mb-2 text-center">Details</h2>
+          <dl className="grid grid-cols-2 gap-4">
             <div>
-              <p className="text-gray-600">Type</p>
-              <p className="font-medium">{asset.type}</p>
+              <dt className="text-gray-600">Type</dt>
+              <dd className="font-medium">{asset.type}</dd>
             </div>
             <div>
-              <p className="text-gray-600">Pages</p>
-              <p className="font-medium">{asset.amountOfPages}</p>
+              <dt className="text-gray-600">Pages</dt>
+              <dd className="font-medium">{asset.amountOfPages}</dd>
             </div>
             <div>
-              <p className="text-gray-600">Has Visuals</p>
-              <p className="font-medium">{asset.hasVisuals ? 'Yes' : 'No'}</p>
+              <dt className="text-gray-600">Has Visuals</dt>
+              <dd className="font-medium">{asset.hasVisuals ? 'Yes' : 'No'}</dd>
             </div>
             <div>
-              <p className="text-gray-600">Hits</p>
-              <p className="font-medium">{asset.hits}</p>
+              <dt className="text-gray-600">Hits</dt>
+              <dd className="font-medium">{asset.hits}</dd>
             </div>
-          </div>
-        </div>
+          </dl>
+        </section>
 
-        <div>
-          <h2 className="text-xl font-semibold mb-2 text-center">
+        <section aria-labelledby="description-heading" role="region">
+          <h2 id="description-heading" className="text-xl font-semibold mb-2 text-center">
             Description
           </h2>
           <p className="text-gray-700">{asset.description}</p>
-        </div>
+        </section>
 
         {asset.type.toLowerCase() === 'kpi' &&
           asset.businessQuestions &&
           asset.businessQuestions.length > 0 && (
-            <div>
-              <h2 className="text-xl font-semibold mb-4 text-center">
+            <section aria-labelledby="questions-heading" role="region">
+              <h2 id="questions-heading" className="text-xl font-semibold mb-4 text-center">
                 Business Questions
               </h2>
-              <div className="grid grid-cols-2 gap-4">
+              <ol className="grid grid-cols-2 gap-4 list-none">
                 {asset.businessQuestions.map((question, index) => (
-                  <div key={index} className="bg-gray-50 rounded-lg p-4">
-                    <div className="font-medium mb-2">Question {index + 1}</div>
-                    <div className="text-sm text-gray-600">{question}</div>
-                  </div>
+                  <li key={index}>
+                    <article className="bg-gray-50 rounded-lg p-4">
+                      <h3 className="font-medium mb-2">Question {index + 1}</h3>
+                      <p className="text-sm text-gray-600">{question}</p>
+                    </article>
+                  </li>
                 ))}
-              </div>
-            </div>
+              </ol>
+            </section>
           )}
 
-        <div>
-          <h2 className="text-xl font-semibold mb-2 text-center">Dates</h2>
-          <div className="grid grid-cols-2 gap-4">
+        <section aria-labelledby="dates-heading" role="region">
+          <h2 id="dates-heading" className="text-xl font-semibold mb-2 text-center">Dates</h2>
+          <dl className="grid grid-cols-2 gap-4">
             <div>
-              <p className="text-gray-600">Created</p>
-              <p className="font-medium">
-                {new Date(asset.creationDate).toLocaleDateString()}
-              </p>
+              <dt className="text-gray-600">Created</dt>
+              <dd className="font-medium">
+                <time dateTime={asset.creationDate}>
+                  {new Date(asset.creationDate).toLocaleDateString()}
+                </time>
+              </dd>
             </div>
             <div>
-              <p className="text-gray-600">Updated</p>
-              <p className="font-medium">
-                {new Date(asset.updatedDate).toLocaleDateString()}
-              </p>
+              <dt className="text-gray-600">Updated</dt>
+              <dd className="font-medium">
+                <time dateTime={asset.updatedDate}>
+                  {new Date(asset.updatedDate).toLocaleDateString()}
+                </time>
+              </dd>
             </div>
-          </div>
-        </div>
+          </dl>
+        </section>
 
         {asset.hasVisuals && (
-          <div>
-            <h2 className="text-xl font-semibold mb-2 text-center">
+          <section aria-labelledby="analytics-heading" role="region">
+            <h2 id="analytics-heading" className="text-xl font-semibold mb-2 text-center">
               Analytics
             </h2>
             <div className="grid grid-cols-1 gap-4">
-              <EngagementChart asset={asset} />
-              <AdherenceChart asset={asset} />
-              <SatisfactionChart asset={asset} />
+              <article aria-label="Engagement Metrics">
+                <EngagementChart asset={asset} />
+              </article>
+              <article aria-label="Adherence Metrics">
+                <AdherenceChart asset={asset} />
+              </article>
+              <article aria-label="Satisfaction Metrics">
+                <SatisfactionChart asset={asset} />
+              </article>
             </div>
-          </div>
+          </section>
         )}
       </div>
-    </div>
+    </main>
   );
 }
