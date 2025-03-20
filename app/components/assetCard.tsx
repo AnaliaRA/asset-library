@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { Asset } from '@/app/hooks/useAssets';
+import { Asset } from '@/types/asset';
 import AssetModal from './assetModal';
 import DataVizModal from './dataVizModal';
 

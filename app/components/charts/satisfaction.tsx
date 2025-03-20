@@ -1,17 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import {
-  XAxis,
-  YAxis,
   Tooltip,
-  CartesianGrid,
   ResponsiveContainer,
-  LineChart,
-  Line,
   PieChart,
   Pie,
   Cell,
 } from 'recharts';
-import { BarChart as RechartsBarChart, Bar, Legend } from 'recharts';
 import { Asset } from '@/types/asset';
 
 interface satisfactionData {

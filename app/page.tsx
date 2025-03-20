@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import { useAssets } from '@/app/hooks/useAssets';
 import AssetCard from '@/app/components/assetCard';
 import Navigation from '@/app/components/filterBar';
@@ -9,7 +9,19 @@ import Featured from '@/app/components/featured';
 import Trending from '@/app/components/trending';
 import { useSearchParams } from 'next/navigation';
 
-export default function Home() {
+function LoadingSpinner() {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex justify-center items-center py-12">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function HomeContent() {
   const searchParams = useSearchParams();
   const [currentFilter, setCurrentFilter] = useState(
     searchParams.get('filter') || 'all'
@@ -83,5 +95,13 @@ export default function Home() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<LoadingSpinner />}>
+      <HomeContent />
+    </Suspense>
   );
 }

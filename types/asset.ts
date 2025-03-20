@@ -5,8 +5,8 @@ export interface Asset {
   description: string;
   creationDate: string;
   updatedDate: string;
-  businessQuestions: string[];
-  amountOfPages: number;
-  hasVisuals: boolean;
   hits: number;
-}
+  businessQuestions?: string[];
+  amountOfPages?: number;
+  hasVisuals?: boolean;
+} 

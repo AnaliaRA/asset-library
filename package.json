@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "clean": "rm -rf .next",
+    "build": "npm run clean && next build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
@@ -24,9 +25,9 @@
     "@types/react-dom": "19",
     "eslint": "9",
     "eslint-config-next": "15.2.3",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.1.3",
-    "prettier": "^3.2.5",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-prettier": "5.1.3",
+    "prettier": "3.2.5",
     "tailwindcss": "4",
     "typescript": "5"
   }

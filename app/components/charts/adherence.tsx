@@ -8,7 +8,6 @@ import {
   LineChart,
   Line,
 } from 'recharts';
-import { BarChart as RechartsBarChart, Bar, Legend } from 'recharts';
 import { Asset } from '@/types/asset';
 
 interface AdherenceData {
