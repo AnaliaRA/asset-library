@@ -31,10 +31,6 @@ const Dashboard = () => {
       setFavorites(favorites.filter(asset => asset.id !== assetId));
     } catch (error) {
       console.error('Error removing favorite:', error);
-      // Things to do:
-      // - Show a toast notification
-      // - Log the error to the console
-      // - Redirect to the dashboard
     }
   };
 

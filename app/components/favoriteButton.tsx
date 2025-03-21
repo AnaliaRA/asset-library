@@ -19,7 +19,6 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({ asset }) => {
   }, [asset.id]);
 
   const handleToggleFavorite = async () => {
-    console.log('handleToggleFavorite');
     setIsLoading(true);
     try {
       if (isFavorite) {

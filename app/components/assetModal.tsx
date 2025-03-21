@@ -205,9 +205,11 @@ const AssetModal: React.FC<AssetModalProps> = ({ asset, isOpen, onClose }) => {
           </div>
         )}
 
-        <div className="p-6 pt-2">
-          <FavoriteButton asset={asset} />
-        </div>
+        {!asset.needsApproval && (
+          <div className="p-6 pt-2">
+            <FavoriteButton asset={asset} />
+          </div>
+        )}
       </div>
     </div>
   );
