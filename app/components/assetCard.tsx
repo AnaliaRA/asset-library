@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { Asset } from '../types/asset';
-import AssetModal from './assetModal';
-import DataVizModal from './dataVizModal';
+import { Asset } from '@/app/types/asset';
+import AssetModal from '@/app/components/assetModal';
+import DataVizModal from '@/app/components/dataVizModal';
 
 const AssetCard: React.FC<{ asset: Asset }> = ({ asset }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);

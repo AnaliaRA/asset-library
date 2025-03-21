@@ -21,7 +21,7 @@ interface NavigationProps {
   onFilterChange: (filter: string) => void;
 }
 
-const Navigation = ({ onFilterChange }: NavigationProps) => {
+const FiltersBar = ({ onFilterChange }: NavigationProps) => {
   const searchParams = useSearchParams();
   const currentFilter = searchParams.get('filter') || 'featured';
 
@@ -51,4 +51,4 @@ const Navigation = ({ onFilterChange }: NavigationProps) => {
   );
 };
 
-export default Navigation;
+export default FiltersBar;
