@@ -14,7 +14,7 @@ const navItems: NavItem[] = [
   { label: 'KPI', type: 'kpi' },
   { label: 'Layouts', type: 'layout' },
   { label: 'Storyboards', type: 'storyboard' },
-  { label: 'Data Viz', type: 'dataViz' },
+  { label: 'Data Viz', type: 'dataviz' },
 ];
 
 interface NavigationProps {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Asset } from '@/types/asset';
+import { Asset } from '../types/asset';
 import EngagementChart from '@/app/components/charts/engagement';
 
 interface AssetModalProps {
@@ -17,20 +17,27 @@ const AssetModal: React.FC<AssetModalProps> = ({ asset, isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-opacity-15 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg w-full max-w-2xl mx-4 overflow-hidden border border-gray-200 shadow-xl">
+    <div 
+      className="fixed inset-0 bg-black bg-opacity-25 flex items-start justify-center z-50 p-4 overflow-y-auto"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+    >
+      <div className="relative bg-white rounded-lg w-full max-w-2xl my-8 border border-gray-200 shadow-xl">
         <div className="flex flex-row-reverse p-6">
           <div className="flex items-center space-x-2">
             <button
               onClick={copyLink}
               className="text-gray-400 hover:text-gray-600"
               title="Copy link"
+              aria-label="Copy link to clipboard"
             >
               <svg
                 className="w-6 h-6"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"
@@ -43,12 +50,14 @@ const AssetModal: React.FC<AssetModalProps> = ({ asset, isOpen, onClose }) => {
             <button
               onClick={onClose}
               className="text-gray-400 hover:text-gray-600"
+              aria-label="Close modal"
             >
               <svg
                 className="w-6 h-6"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"
@@ -69,6 +78,7 @@ const AssetModal: React.FC<AssetModalProps> = ({ asset, isOpen, onClose }) => {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
+                  aria-hidden="true"
                 >
                   <rect
                     x="3"
@@ -82,7 +92,7 @@ const AssetModal: React.FC<AssetModalProps> = ({ asset, isOpen, onClose }) => {
                 </svg>
               </div>
             </div>
-            <h2 className="text-xl font-semibold text-center flex flex-col items-center gap-2">
+            <h2 id="modal-title" className="text-xl font-semibold text-center flex flex-col items-center gap-2">
               <a
                 href={`/assets/${asset.id}`}
                 target="_blank"
@@ -166,12 +176,16 @@ const AssetModal: React.FC<AssetModalProps> = ({ asset, isOpen, onClose }) => {
         )}
 
         <div className="p-6 pt-2">
-          <button className="w-full bg-gray-900 text-white py-3 rounded-lg flex items-center justify-center space-x-2 hover:bg-gray-800 transition-colors">
+          <button 
+            className="w-full bg-gray-900 text-white py-3 rounded-lg flex items-center justify-center space-x-2 hover:bg-gray-800 transition-colors"
+            aria-label="Add to favorites"
+          >
             <svg
               className="w-5 h-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"

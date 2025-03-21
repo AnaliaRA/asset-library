@@ -1,37 +1,57 @@
 'use client';
 
-import { Suspense, useState } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { useAssets } from '@/app/hooks/useAssets';
-import AssetCard from '@/app/components/assetCard';
 import Navigation from '@/app/components/filterBar';
 import SearchBar from '@/app/components/searchBar';
 import Featured from '@/app/components/featured';
 import Trending from '@/app/components/trending';
-import { useSearchParams } from 'next/navigation';
-
-function LoadingSpinner() {
-  return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex justify-center items-center py-12">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
-        </div>
-      </div>
-    </div>
-  );
-}
+import FilteredAssets from '@/app/components/filteredAssets';
+import LoadingSpinner from '@/app/components/loadingSpinner';
+import { useSearchParams, useRouter } from 'next/navigation';
 
 function HomeContent() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const [currentFilter, setCurrentFilter] = useState(
     searchParams.get('filter') || 'all'
   );
+  const [searchTerm, setSearchTerm] = useState(
+    searchParams.get('search') || ''
+  );
   const { filteredAssets, isLoading, error, searchAssets } =
     useAssets(currentFilter);
 
+  // Initialize search term from URL
+  useEffect(() => {
+    if (searchTerm) {
+      searchAssets(searchTerm);
+    }
+  }, [searchTerm, searchAssets]); // Added missing dependencies
+
+  // Update URL when filter changes
+  useEffect(() => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (currentFilter === 'all') {
+      params.delete('filter');
+    } else {
+      params.set('filter', currentFilter);
+    }
+    if (searchTerm) {
+      params.set('search', searchTerm);
+    } else {
+      params.delete('search');
+    }
+    router.push(`?${params.toString()}`);
+  }, [currentFilter, searchTerm, router, searchParams]);
+
   const handleFilterChange = (filter: string) => {
     setCurrentFilter(filter);
-    searchAssets('');
+  };
+
+  const handleSearch = (term: string) => {
+    setSearchTerm(term);
+    searchAssets(term);
   };
 
   if (error) {
@@ -44,24 +64,18 @@ function HomeContent() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto">
-        <div className="px-4 sm:px-6 lg:px-8 py-8 bg-gray-50">
-          <div className="flex flex-col items-center">
-            <h1 className="text-4xl font-bold text-gray-900">Library</h1>
-            <p className="text-md text-gray-500 mt-2">
-              Browse for assets needed to report and present analysis.
-            </p>
-            <div className="w-full max-w-2xl mt-8">
-              <SearchBar onSearch={searchAssets} />
-            </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="space-y-8">
+          <div className="flex flex-col items-center space-y-4">
+            <SearchBar
+              onSearch={handleSearch}
+              placeholder="Search assets..."
+              activeFilter={currentFilter !== 'all' ? currentFilter : undefined}
+            />
+            <Navigation onFilterChange={handleFilterChange} />
           </div>
-        </div>
-        <Navigation onFilterChange={handleFilterChange} />
-        <div className="px-4 sm:px-6 lg:px-8 py-8">
           {isLoading ? (
-            <div className="flex justify-center items-center py-12">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
-            </div>
+            <LoadingSpinner />
           ) : (
             <div className="space-y-12">
               <div>
@@ -73,23 +87,10 @@ function HomeContent() {
                   currentFilter={currentFilter}
                 />
               </div>
-              {currentFilter !== 'all' && (
-                <div>
-                  <div className="mb-4">
-                    <h2 className="text-2xl font-semibold">
-                      All {currentFilter} Assets
-                    </h2>
-                    <p className="text-sm text-gray-500">
-                      Browse all available {currentFilter} assets
-                    </p>
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {filteredAssets.map(asset => (
-                      <AssetCard key={asset.name} asset={asset} />
-                    ))}
-                  </div>
-                </div>
-              )}
+              <FilteredAssets
+                assets={filteredAssets}
+                currentFilter={currentFilter}
+              />
             </div>
           )}
         </div>
@@ -100,8 +101,12 @@ function HomeContent() {
 
 export default function Home() {
   return (
-    <Suspense fallback={<LoadingSpinner />}>
-      <HomeContent />
-    </Suspense>
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <Suspense fallback={<LoadingSpinner />}>
+          <HomeContent />
+        </Suspense>
+      </div>
+    </div>
   );
 }

@@ -32,7 +32,7 @@ type Story = StoryObj<typeof AssetCard>;
 export const KPIAsset: Story = {
   args: {
     asset: {
-      id: 1,
+      id: '1',
       name: 'Sample KPI Asset',
       type: 'kpi',
       description: 'This is a sample KPI asset for demonstration.',
@@ -67,7 +67,7 @@ export const KPIAsset: Story = {
 export const DataVizAsset: Story = {
   args: {
     asset: {
-      id: 2,
+      id: '2',
       name: 'Sample Data Visualization',
       type: 'dataviz',
       description: 'This is a sample data visualization asset.',
@@ -101,7 +101,7 @@ export const DataVizAsset: Story = {
 export const LayoutAsset: Story = {
   args: {
     asset: {
-      id: 11,
+      id: '11',
       name: 'Sample Layout',
       type: 'layout',
       description: 'This is a sample layout asset.',

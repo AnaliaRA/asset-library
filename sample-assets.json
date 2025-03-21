@@ -1,0 +1,435 @@
+{
+  "__collections__": {
+    "assets": {
+      "asset1": {
+        "name": "Monthly Sales KPI Dashboard",
+        "type": "kpi",
+        "description": "Comprehensive dashboard showing monthly sales performance metrics",
+        "creationDate": "2024-03-20T00:00:00.000Z",
+        "updatedDate": "2024-03-20T00:00:00.000Z",
+        "businessQuestions": [
+          "What is the monthly sales trend?",
+          "How do sales compare to targets?"
+        ],
+        "amountOfPages": 5,
+        "hasVisuals": true,
+        "hits": 42
+      },
+      "asset2": {
+        "name": "Customer Satisfaction Report",
+        "type": "dataviz",
+        "description": "Visual representation of customer satisfaction metrics",
+        "creationDate": "2024-03-20T00:00:00.000Z",
+        "updatedDate": "2024-03-20T00:00:00.000Z",
+        "businessQuestions": [
+          "What is the overall satisfaction score?",
+          "Which areas need improvement?"
+        ],
+        "amountOfPages": 3,
+        "hasVisuals": true,
+        "hits": 28
+      },
+      "asset3": {
+        "name": "Product Performance Layout",
+        "type": "layout",
+        "description": "Standard layout for product performance reports",
+        "creationDate": "2024-03-20T00:00:00.000Z",
+        "updatedDate": "2024-03-20T00:00:00.000Z",
+        "businessQuestions": [],
+        "amountOfPages": 2,
+        "hasVisuals": false,
+        "hits": 15
+      },
+      "asset4": {
+        "name": "Revenue Growth KPI Tracker",
+        "type": "kpi",
+        "description": "Track revenue growth across different business units",
+        "creationDate": "2024-03-15T00:00:00.000Z",
+        "updatedDate": "2024-03-19T00:00:00.000Z",
+        "businessQuestions": [
+          "What is our year-over-year growth rate?",
+          "Which business units are growing fastest?"
+        ],
+        "amountOfPages": 4,
+        "hasVisuals": true,
+        "hits": 35
+      },
+      "asset5": {
+        "name": "Market Share Analysis",
+        "type": "dataviz",
+        "description": "Interactive visualization of market share by region",
+        "creationDate": "2024-03-10T00:00:00.000Z",
+        "updatedDate": "2024-03-18T00:00:00.000Z",
+        "businessQuestions": [
+          "How does our market share compare to competitors?",
+          "Which regions show the most potential for growth?"
+        ],
+        "amountOfPages": 6,
+        "hasVisuals": true,
+        "hits": 52
+      },
+      "asset6": {
+        "name": "Executive Summary Layout",
+        "type": "layout",
+        "description": "Professional layout template for executive summaries",
+        "creationDate": "2024-03-05T00:00:00.000Z",
+        "updatedDate": "2024-03-17T00:00:00.000Z",
+        "businessQuestions": [],
+        "amountOfPages": 1,
+        "hasVisuals": false,
+        "hits": 89
+      },
+      "asset7": {
+        "name": "Employee Productivity KPIs",
+        "type": "kpi",
+        "description": "Key metrics for tracking employee productivity",
+        "creationDate": "2024-03-01T00:00:00.000Z",
+        "updatedDate": "2024-03-16T00:00:00.000Z",
+        "businessQuestions": [
+          "What is the average productivity per employee?",
+          "How does productivity vary by department?"
+        ],
+        "amountOfPages": 3,
+        "hasVisuals": true,
+        "hits": 67
+      },
+      "asset8": {
+        "name": "Supply Chain Flow Visualization",
+        "type": "dataviz",
+        "description": "Visual representation of supply chain processes",
+        "creationDate": "2024-02-28T00:00:00.000Z",
+        "updatedDate": "2024-03-15T00:00:00.000Z",
+        "businessQuestions": [
+          "Where are the bottlenecks in our supply chain?",
+          "How can we optimize delivery routes?"
+        ],
+        "amountOfPages": 5,
+        "hasVisuals": true,
+        "hits": 43
+      },
+      "asset9": {
+        "name": "Financial Report Layout",
+        "type": "layout",
+        "description": "Standardized layout for financial reports",
+        "creationDate": "2024-02-25T00:00:00.000Z",
+        "updatedDate": "2024-03-14T00:00:00.000Z",
+        "businessQuestions": [],
+        "amountOfPages": 4,
+        "hasVisuals": false,
+        "hits": 76
+      },
+      "asset10": {
+        "name": "Customer Acquisition Cost KPI",
+        "type": "kpi",
+        "description": "Track and analyze customer acquisition costs",
+        "creationDate": "2024-02-20T00:00:00.000Z",
+        "updatedDate": "2024-03-13T00:00:00.000Z",
+        "businessQuestions": [
+          "What is our average CAC?",
+          "How does CAC vary by channel?"
+        ],
+        "amountOfPages": 2,
+        "hasVisuals": true,
+        "hits": 58
+      },
+      "asset11": {
+        "name": "Website Traffic Analysis",
+        "type": "dataviz",
+        "description": "Interactive visualization of website traffic patterns",
+        "creationDate": "2024-02-15T00:00:00.000Z",
+        "updatedDate": "2024-03-12T00:00:00.000Z",
+        "businessQuestions": [
+          "What are our peak traffic times?",
+          "Which pages have the highest engagement?"
+        ],
+        "amountOfPages": 7,
+        "hasVisuals": true,
+        "hits": 91
+      },
+      "asset12": {
+        "name": "Marketing Campaign Layout",
+        "type": "layout",
+        "description": "Template for marketing campaign reports",
+        "creationDate": "2024-02-10T00:00:00.000Z",
+        "updatedDate": "2024-03-11T00:00:00.000Z",
+        "businessQuestions": [],
+        "amountOfPages": 3,
+        "hasVisuals": false,
+        "hits": 64
+      },
+      "asset13": {
+        "name": "Inventory Turnover KPI",
+        "type": "kpi",
+        "description": "Monitor inventory turnover rates",
+        "creationDate": "2024-02-05T00:00:00.000Z",
+        "updatedDate": "2024-03-10T00:00:00.000Z",
+        "businessQuestions": [
+          "What is our inventory turnover ratio?",
+          "Which products have the highest turnover?"
+        ],
+        "amountOfPages": 4,
+        "hasVisuals": true,
+        "hits": 47
+      },
+      "asset14": {
+        "name": "Customer Journey Map",
+        "type": "dataviz",
+        "description": "Visual representation of customer journey stages",
+        "creationDate": "2024-02-01T00:00:00.000Z",
+        "updatedDate": "2024-03-09T00:00:00.000Z",
+        "businessQuestions": [
+          "Where do customers drop off?",
+          "What are the key touchpoints?"
+        ],
+        "amountOfPages": 5,
+        "hasVisuals": true,
+        "hits": 83
+      },
+      "asset15": {
+        "name": "Project Status Layout",
+        "type": "layout",
+        "description": "Template for project status reports",
+        "creationDate": "2024-01-28T00:00:00.000Z",
+        "updatedDate": "2024-03-08T00:00:00.000Z",
+        "businessQuestions": [],
+        "amountOfPages": 2,
+        "hasVisuals": false,
+        "hits": 72
+      },
+      "asset16": {
+        "name": "Employee Retention KPI",
+        "type": "kpi",
+        "description": "Track employee retention rates and trends",
+        "creationDate": "2024-01-25T00:00:00.000Z",
+        "updatedDate": "2024-03-07T00:00:00.000Z",
+        "businessQuestions": [
+          "What is our retention rate by department?",
+          "What factors influence retention?"
+        ],
+        "amountOfPages": 3,
+        "hasVisuals": true,
+        "hits": 55
+      },
+      "asset17": {
+        "name": "Budget Allocation Visualization",
+        "type": "dataviz",
+        "description": "Visual breakdown of budget allocation",
+        "creationDate": "2024-01-20T00:00:00.000Z",
+        "updatedDate": "2024-03-06T00:00:00.000Z",
+        "businessQuestions": [
+          "How is the budget distributed?",
+          "Which areas are under/over budget?"
+        ],
+        "amountOfPages": 4,
+        "hasVisuals": true,
+        "hits": 68
+      },
+      "asset18": {
+        "name": "Weekly Report Layout",
+        "type": "layout",
+        "description": "Standard template for weekly reports",
+        "creationDate": "2024-01-15T00:00:00.000Z",
+        "updatedDate": "2024-03-05T00:00:00.000Z",
+        "businessQuestions": [],
+        "amountOfPages": 2,
+        "hasVisuals": false,
+        "hits": 95
+      },
+      "asset19": {
+        "name": "Social Media Engagement KPI",
+        "type": "kpi",
+        "description": "Track social media engagement metrics",
+        "creationDate": "2024-01-10T00:00:00.000Z",
+        "updatedDate": "2024-03-04T00:00:00.000Z",
+        "businessQuestions": [
+          "What is our engagement rate?",
+          "Which platforms perform best?"
+        ],
+        "amountOfPages": 5,
+        "hasVisuals": true,
+        "hits": 77
+      },
+      "asset20": {
+        "name": "Sales Pipeline Visualization",
+        "type": "dataviz",
+        "description": "Interactive view of sales pipeline stages",
+        "creationDate": "2024-01-05T00:00:00.000Z",
+        "updatedDate": "2024-03-03T00:00:00.000Z",
+        "businessQuestions": [
+          "What is our pipeline value?",
+          "Where are deals getting stuck?"
+        ],
+        "amountOfPages": 6,
+        "hasVisuals": true,
+        "hits": 86
+      },
+      "asset21": {
+        "name": "Monthly Review Layout",
+        "type": "layout",
+        "description": "Template for monthly performance reviews",
+        "creationDate": "2024-01-01T00:00:00.000Z",
+        "updatedDate": "2024-03-02T00:00:00.000Z",
+        "businessQuestions": [],
+        "amountOfPages": 3,
+        "hasVisuals": false,
+        "hits": 61
+      },
+      "asset22": {
+        "name": "Product Quality KPI",
+        "type": "kpi",
+        "description": "Monitor product quality metrics",
+        "creationDate": "2023-12-28T00:00:00.000Z",
+        "updatedDate": "2024-03-01T00:00:00.000Z",
+        "businessQuestions": [
+          "What is our defect rate?",
+          "How does quality vary by product line?"
+        ],
+        "amountOfPages": 4,
+        "hasVisuals": true,
+        "hits": 49
+      },
+      "asset23": {
+        "name": "Competitor Analysis Dashboard",
+        "type": "dataviz",
+        "description": "Visual comparison of competitor metrics",
+        "creationDate": "2023-12-25T00:00:00.000Z",
+        "updatedDate": "2024-02-29T00:00:00.000Z",
+        "businessQuestions": [
+          "How do we compare to competitors?",
+          "Where are our competitive advantages?"
+        ],
+        "amountOfPages": 8,
+        "hasVisuals": true,
+        "hits": 93
+      },
+      "asset24": {
+        "name": "Team Performance Layout",
+        "type": "layout",
+        "description": "Template for team performance reports",
+        "creationDate": "2023-12-20T00:00:00.000Z",
+        "updatedDate": "2024-02-28T00:00:00.000Z",
+        "businessQuestions": [],
+        "amountOfPages": 2,
+        "hasVisuals": false,
+        "hits": 71
+      },
+      "asset25": {
+        "name": "Customer Lifetime Value KPI",
+        "type": "kpi",
+        "description": "Track customer lifetime value metrics",
+        "creationDate": "2023-12-15T00:00:00.000Z",
+        "updatedDate": "2024-02-27T00:00:00.000Z",
+        "businessQuestions": [
+          "What is our average CLV?",
+          "How does CLV vary by segment?"
+        ],
+        "amountOfPages": 5,
+        "hasVisuals": true,
+        "hits": 82
+      },
+      "asset26": {
+        "name": "Geographic Sales Distribution",
+        "type": "dataviz",
+        "description": "Interactive map of sales distribution",
+        "creationDate": "2023-12-10T00:00:00.000Z",
+        "updatedDate": "2024-02-26T00:00:00.000Z",
+        "businessQuestions": [
+          "Which regions generate most revenue?",
+          "Where are our growth opportunities?"
+        ],
+        "amountOfPages": 4,
+        "hasVisuals": true,
+        "hits": 75
+      },
+      "asset27": {
+        "name": "Quarterly Report Layout",
+        "type": "layout",
+        "description": "Standard template for quarterly reports",
+        "creationDate": "2023-12-05T00:00:00.000Z",
+        "updatedDate": "2024-02-25T00:00:00.000Z",
+        "businessQuestions": [],
+        "amountOfPages": 5,
+        "hasVisuals": false,
+        "hits": 88
+      },
+      "asset28": {
+        "name": "Marketing ROI KPI",
+        "type": "kpi",
+        "description": "Track return on marketing investment",
+        "creationDate": "2023-12-01T00:00:00.000Z",
+        "updatedDate": "2024-02-24T00:00:00.000Z",
+        "businessQuestions": [
+          "What is our marketing ROI?",
+          "Which campaigns are most effective?"
+        ],
+        "amountOfPages": 3,
+        "hasVisuals": true,
+        "hits": 66
+      },
+      "asset29": {
+        "name": "Product Usage Analytics",
+        "type": "dataviz",
+        "description": "Visual analysis of product usage patterns",
+        "creationDate": "2023-11-28T00:00:00.000Z",
+        "updatedDate": "2024-02-23T00:00:00.000Z",
+        "businessQuestions": [
+          "How are users engaging with our product?",
+          "What features are most used?"
+        ],
+        "amountOfPages": 7,
+        "hasVisuals": true,
+        "hits": 79
+      },
+      "asset30": {
+        "name": "Risk Assessment Layout",
+        "type": "layout",
+        "description": "Template for risk assessment reports",
+        "creationDate": "2023-11-25T00:00:00.000Z",
+        "updatedDate": "2024-02-22T00:00:00.000Z",
+        "businessQuestions": [],
+        "amountOfPages": 4,
+        "hasVisuals": false,
+        "hits": 54
+      },
+      "asset31": {
+        "name": "Website Performance KPI",
+        "type": "kpi",
+        "description": "Track website performance metrics",
+        "creationDate": "2023-11-20T00:00:00.000Z",
+        "updatedDate": "2024-02-21T00:00:00.000Z",
+        "businessQuestions": [
+          "What is our website uptime?",
+          "How does load time affect conversion?"
+        ],
+        "amountOfPages": 4,
+        "hasVisuals": true,
+        "hits": 63
+      },
+      "asset32": {
+        "name": "Customer Segmentation Analysis",
+        "type": "dataviz",
+        "description": "Visual breakdown of customer segments",
+        "creationDate": "2023-11-15T00:00:00.000Z",
+        "updatedDate": "2024-02-20T00:00:00.000Z",
+        "businessQuestions": [
+          "What are our key customer segments?",
+          "How do behaviors differ by segment?"
+        ],
+        "amountOfPages": 6,
+        "hasVisuals": true,
+        "hits": 87
+      },
+      "asset33": {
+        "name": "Annual Report Layout",
+        "type": "layout",
+        "description": "Comprehensive template for annual reports",
+        "creationDate": "2023-11-10T00:00:00.000Z",
+        "updatedDate": "2024-02-19T00:00:00.000Z",
+        "businessQuestions": [],
+        "amountOfPages": 8,
+        "hasVisuals": false,
+        "hits": 96
+      }
+    }
+  }
+} 

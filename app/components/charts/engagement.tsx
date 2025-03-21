@@ -9,7 +9,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
-import { Asset } from '@/types/asset';
+import { Asset } from '@/app/types/asset';
 
 interface EngagementChartProps {
   asset: Asset;

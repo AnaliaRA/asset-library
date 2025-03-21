@@ -16,7 +16,7 @@ export default meta;
 type Story = StoryObj<typeof EngagementChart>;
 
 const mockAsset = {
-  id: 1,
+  id: '1',
   name: 'Test Asset',
   type: 'kpi',
   description: 'Test description',

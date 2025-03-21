@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { promises as fs } from 'fs';
-import path from 'path';
-import { Asset } from '@/types/asset';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '@/app/firebase/config';
 
 export async function GET(
   request: NextRequest,
@@ -13,21 +12,17 @@ export async function GET(
       return NextResponse.json({ error: 'Missing asset ID' }, { status: 400 });
     }
 
-    const assetId = parseInt(id, 10);
-    if (isNaN(assetId)) {
-      return NextResponse.json({ error: 'Invalid asset ID' }, { status: 400 });
-    }
+    const assetRef = doc(db, 'assets', id);
+    const assetDoc = await getDoc(assetRef);
 
-    const filePath = path.join(process.cwd(), 'app', 'data', 'assets.json');
-    const fileContents = await fs.readFile(filePath, 'utf8');
-    const assets: Asset[] = JSON.parse(fileContents);
-
-    const asset = assets.find(a => a.id === assetId);
-    if (!asset) {
+    if (!assetDoc.exists()) {
       return NextResponse.json({ error: 'Asset not found' }, { status: 404 });
     }
 
-    return NextResponse.json(asset);
+    return NextResponse.json({
+      id: assetDoc.id,
+      ...assetDoc.data()
+    });
   } catch (error) {
     console.error('Error fetching asset:', error);
     return NextResponse.json(

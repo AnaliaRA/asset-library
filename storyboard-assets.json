@@ -1,0 +1,146 @@
+{
+  "__collections__": {
+    "assets": {
+      "storyboard1": {
+        "name": "Product Launch Campaign Storyboard",
+        "type": "storyboard",
+        "description": "Visual sequence for new product launch marketing campaign",
+        "creationDate": "2024-03-15T00:00:00.000Z",
+        "updatedDate": "2024-03-20T00:00:00.000Z",
+        "businessQuestions": [
+          "How do we visually communicate the product benefits?",
+          "What is the emotional journey of our target audience?"
+        ],
+        "amountOfPages": 6,
+        "hasVisuals": true,
+        "hits": 45
+      },
+      "storyboard2": {
+        "name": "User Onboarding Flow Storyboard",
+        "type": "storyboard",
+        "description": "Step-by-step visualization of user onboarding experience",
+        "creationDate": "2024-03-10T00:00:00.000Z",
+        "updatedDate": "2024-03-19T00:00:00.000Z",
+        "businessQuestions": [
+          "What are the key steps in our onboarding process?",
+          "Where might users need additional guidance?"
+        ],
+        "amountOfPages": 8,
+        "hasVisuals": true,
+        "hits": 62
+      },
+      "storyboard3": {
+        "name": "Customer Journey Storyboard",
+        "type": "storyboard",
+        "description": "Visual narrative of customer interaction touchpoints",
+        "creationDate": "2024-03-05T00:00:00.000Z",
+        "updatedDate": "2024-03-18T00:00:00.000Z",
+        "businessQuestions": [
+          "What are the key moments in our customer journey?",
+          "How can we improve the customer experience?"
+        ],
+        "amountOfPages": 10,
+        "hasVisuals": true,
+        "hits": 78
+      },
+      "storyboard4": {
+        "name": "Feature Implementation Storyboard",
+        "type": "storyboard",
+        "description": "Visual guide for new feature implementation process",
+        "creationDate": "2024-03-01T00:00:00.000Z",
+        "updatedDate": "2024-03-17T00:00:00.000Z",
+        "businessQuestions": [
+          "What are the technical requirements for each stage?",
+          "How will this feature integrate with existing systems?"
+        ],
+        "amountOfPages": 5,
+        "hasVisuals": true,
+        "hits": 53
+      },
+      "storyboard5": {
+        "name": "Sales Presentation Storyboard",
+        "type": "storyboard",
+        "description": "Visual framework for sales team presentations",
+        "creationDate": "2024-02-25T00:00:00.000Z",
+        "updatedDate": "2024-03-16T00:00:00.000Z",
+        "businessQuestions": [
+          "How do we structure our sales narrative?",
+          "What visuals best support our value proposition?"
+        ],
+        "amountOfPages": 7,
+        "hasVisuals": true,
+        "hits": 91
+      },
+      "storyboard6": {
+        "name": "App Walkthrough Storyboard",
+        "type": "storyboard",
+        "description": "Visual guide for app navigation and features",
+        "creationDate": "2024-02-20T00:00:00.000Z",
+        "updatedDate": "2024-03-15T00:00:00.000Z",
+        "businessQuestions": [
+          "How intuitive is our app navigation?",
+          "Where might users need help features?"
+        ],
+        "amountOfPages": 12,
+        "hasVisuals": true,
+        "hits": 67
+      },
+      "storyboard7": {
+        "name": "Brand Story Storyboard",
+        "type": "storyboard",
+        "description": "Visual narrative of company brand evolution",
+        "creationDate": "2024-02-15T00:00:00.000Z",
+        "updatedDate": "2024-03-14T00:00:00.000Z",
+        "businessQuestions": [
+          "How has our brand evolved over time?",
+          "What are our key brand moments?"
+        ],
+        "amountOfPages": 9,
+        "hasVisuals": true,
+        "hits": 84
+      },
+      "storyboard8": {
+        "name": "Problem Resolution Storyboard",
+        "type": "storyboard",
+        "description": "Visual sequence for customer support process",
+        "creationDate": "2024-02-10T00:00:00.000Z",
+        "updatedDate": "2024-03-13T00:00:00.000Z",
+        "businessQuestions": [
+          "What is our problem resolution workflow?",
+          "How can we streamline support processes?"
+        ],
+        "amountOfPages": 6,
+        "hasVisuals": true,
+        "hits": 59
+      },
+      "storyboard9": {
+        "name": "Training Module Storyboard",
+        "type": "storyboard",
+        "description": "Visual outline for employee training program",
+        "creationDate": "2024-02-05T00:00:00.000Z",
+        "updatedDate": "2024-03-12T00:00:00.000Z",
+        "businessQuestions": [
+          "What are the key learning objectives?",
+          "How do we measure training effectiveness?"
+        ],
+        "amountOfPages": 15,
+        "hasVisuals": true,
+        "hits": 73
+      },
+      "storyboard10": {
+        "name": "Product Demo Storyboard",
+        "type": "storyboard",
+        "description": "Visual sequence for product demonstration",
+        "creationDate": "2024-02-01T00:00:00.000Z",
+        "updatedDate": "2024-03-11T00:00:00.000Z",
+        "businessQuestions": [
+          "What are the key features to highlight?",
+          "How do we demonstrate value proposition?"
+        ],
+        "amountOfPages": 8,
+        "hasVisuals": true,
+        "hits": 88
+      }
+    }
+  }
+} 
