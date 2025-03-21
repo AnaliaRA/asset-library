@@ -35,13 +35,11 @@ const convertToAsset = (doc: DocumentData): Asset => {
 };
 
 export const assetService = {
-  // Get all assets
   async getAllAssets(): Promise<Asset[]> {
     const snapshot = await getDocs(assetsCollection);
     return snapshot.docs.map(convertToAsset);
   },
 
-  // Get a single asset by ID
   async getAssetById(id: string): Promise<Asset | null> {
     const docRef = doc(db, COLLECTION_NAME, id);
     const snapshot = await getDoc(docRef);
@@ -49,7 +47,6 @@ export const assetService = {
     return convertToAsset(snapshot);
   },
 
-  // Create a new asset
   async createAsset(asset: Omit<Asset, 'id'>): Promise<Asset> {
     const docRef = await addDoc(assetsCollection, {
       ...asset,
@@ -66,7 +63,6 @@ export const assetService = {
     };
   },
 
-  // Update an asset
   async updateAsset(id: string, asset: Partial<Asset>): Promise<void> {
     const docRef = doc(db, COLLECTION_NAME, id);
     await updateDoc(docRef, {
@@ -75,20 +71,17 @@ export const assetService = {
     });
   },
 
-  // Delete an asset
   async deleteAsset(id: string): Promise<void> {
     const docRef = doc(db, COLLECTION_NAME, id);
     await deleteDoc(docRef);
   },
 
-  // Search assets by type
   async searchByType(type: string): Promise<Asset[]> {
     const q = query(assetsCollection, where('type', '==', type));
     const snapshot = await getDocs(q);
     return snapshot.docs.map(convertToAsset);
   },
 
-  // Get most viewed assets
   async getMostViewed(limitCount: number = 5): Promise<Asset[]> {
     const q = query(
       assetsCollection,
@@ -99,7 +92,6 @@ export const assetService = {
     return snapshot.docs.map(convertToAsset);
   },
 
-  // Increment asset hits
   async incrementHits(id: string): Promise<void> {
     const docRef = doc(db, COLLECTION_NAME, id);
     const snapshot = await getDoc(docRef);

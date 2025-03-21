@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Asset } from '../types/asset';
 import EngagementChart from '@/app/components/charts/engagement';
+import FavoriteButton from '@/app/components/favoriteButton';
 
 interface AssetModalProps {
   asset: Asset;
@@ -9,6 +10,34 @@ interface AssetModalProps {
 }
 
 const AssetModal: React.FC<AssetModalProps> = ({ asset, isOpen, onClose }) => {
+  const modalRef = useRef<HTMLDivElement>(null);
+  const previousActiveElement = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      previousActiveElement.current = document.activeElement as HTMLElement;
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+      previousActiveElement.current?.focus();
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscape);
+      return () => {
+        document.removeEventListener('keydown', handleEscape);
+      };
+    }
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   const copyLink = () => {
@@ -18,32 +47,38 @@ const AssetModal: React.FC<AssetModalProps> = ({ asset, isOpen, onClose }) => {
 
   return (
     <div 
-      className="fixed inset-0 bg-black bg-opacity-25 flex items-start justify-center z-50 p-4 overflow-y-auto"
+      className="fixed inset-0 bg-black bg-opacity-25 flex items-start justify-center z-50 p-4"
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          onClose();
+        }
+      }}
     >
-      <div className="relative bg-white rounded-lg w-full max-w-2xl my-8 border border-gray-200 shadow-xl">
+      <div 
+        ref={modalRef}
+        className="relative bg-white rounded-lg shadow-xl max-w-4xl w-full mx-4 max-h-[90vh] flex flex-col"
+      >
         <div className="flex flex-row-reverse p-6">
           <div className="flex items-center space-x-2">
             <button
-              onClick={copyLink}
-              className="text-gray-400 hover:text-gray-600"
-              title="Copy link"
-              aria-label="Copy link to clipboard"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
+                onClick={copyLink}
+                className="text-gray-400 hover:text-gray-600"
+                title="Copy link"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
                 />
               </svg>
             </button>
@@ -52,24 +87,19 @@ const AssetModal: React.FC<AssetModalProps> = ({ asset, isOpen, onClose }) => {
               className="text-gray-400 hover:text-gray-600"
               aria-label="Close modal"
             >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
         </div>
-        <div className="px-6 pb-4">
+        <div 
+          className="overflow-y-auto flex-1 p-6"
+          role="region"
+          aria-label="Modal content"
+          tabIndex={0}
+          style={{ scrollBehavior: 'smooth' }}
+        >
           <div className="gap-2">
             <div className="flex justify-center mb-4">
               <div className="p-3 bg-gray-100 rounded-full">
@@ -147,17 +177,11 @@ const AssetModal: React.FC<AssetModalProps> = ({ asset, isOpen, onClose }) => {
             <div className="text-sm text-gray-500">Last Updated</div>
           </div>
         </div>
-
-        <div className="p-6">
-          <h3 className="font-semibold mb-4">Description</h3>
-          <p className="text-gray-600">{asset.description}</p>
-        </div>
-
         {asset.type.toLowerCase() === 'kpi' &&
           asset.businessQuestions &&
           asset.businessQuestions.length > 0 && (
-            <div className="px-6 pb-6">
-              <h3 className="font-semibold mb-4">Business Questions</h3>
+            <div className="px-6 pb-2">
+              <h3 className="font-semibold m-2">Business Questions</h3>
               <div className="grid grid-cols-2 gap-4">
                 {asset.businessQuestions.slice(0, 2).map((question, index) => (
                   <div key={index} className="bg-gray-50 rounded-lg p-4">
@@ -170,32 +194,19 @@ const AssetModal: React.FC<AssetModalProps> = ({ asset, isOpen, onClose }) => {
           )}
 
         {asset.hasVisuals && (
-          <div className="px-6">
+          <div 
+            className="overflow-y-auto"
+            role="region"
+            aria-label="Charts section"
+            tabIndex={0}
+            style={{ scrollBehavior: 'smooth' }}
+          >
             <EngagementChart asset={asset} />
           </div>
         )}
 
         <div className="p-6 pt-2">
-          <button 
-            className="w-full bg-gray-900 text-white py-3 rounded-lg flex items-center justify-center space-x-2 hover:bg-gray-800 transition-colors"
-            aria-label="Add to favorites"
-          >
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-              />
-            </svg>
-            <span>Favorite item</span>
-          </button>
+          <FavoriteButton asset={asset} />
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AssetCard from './assetCard';
+import AssetCard from '@/app/components/assetCard';
 import { Asset } from '@/app/types/asset';
 
 interface TrendingProps {

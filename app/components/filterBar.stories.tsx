@@ -2,11 +2,11 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { userEvent, within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
-import Navigation from './filterBar';
+import FiltersBar from './filterBar';
 
-const meta: Meta<typeof Navigation> = {
+const meta: Meta<typeof FiltersBar> = {
   title: 'Components/FilterBar',
-  component: Navigation,
+  component: FiltersBar,
   parameters: {
     layout: 'centered',
     nextjs: {
@@ -21,7 +21,7 @@ const meta: Meta<typeof Navigation> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Navigation>;
+type Story = StoryObj<typeof FiltersBar>;
 
 export const Default: Story = {
   args: {

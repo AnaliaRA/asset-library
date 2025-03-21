@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import AssetModal from './assetModal';
+import DataVizModal from './dataVizModal';
 import { Asset } from '@/app/types/asset';
 
-const meta: Meta<typeof AssetModal> = {
-  title: 'Components/AssetModal',
-  component: AssetModal,
+const meta: Meta<typeof DataVizModal> = {
+  title: 'Components/DataVizModal',
+  component: DataVizModal,
   parameters: {
     layout: 'centered',
     a11y: {
@@ -139,14 +139,14 @@ const meta: Meta<typeof AssetModal> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof AssetModal>;
+type Story = StoryObj<typeof DataVizModal>;
 
 // Sample asset for testing
 const sampleAsset: Asset = {
   id: '1',
-  name: 'Sample Asset',
-  description: 'This is a sample asset with business questions and visuals.',
-  type: 'KPI',
+  name: 'Sample Data Visualization',
+  description: 'This is a sample data visualization asset with multiple charts.',
+  type: 'dataviz',
   hits: 100,
   creationDate: '2024-01-01',
   updatedDate: '2024-01-01',
@@ -180,35 +180,11 @@ export const Default: Story = {
   },
 };
 
-export const WithoutBusinessQuestions: Story = {
+export const WithKPI: Story = {
   args: {
     asset: {
       ...sampleAsset,
-      businessQuestions: [],
-    },
-    isOpen: true,
-    onClose: () => {},
-  },
-  parameters: {
-    a11y: {
-      config: {
-        rules: [
-          {
-            id: 'aria-allowed-attr',
-            enabled: true,
-            selector: '[role="dialog"]',
-          },
-        ],
-      },
-    },
-  },
-};
-
-export const WithoutVisuals: Story = {
-  args: {
-    asset: {
-      ...sampleAsset,
-      hasVisuals: false,
+      type: 'KPI',
     },
     isOpen: true,
     onClose: () => {},
@@ -233,30 +209,6 @@ export const WithLayout: Story = {
     asset: {
       ...sampleAsset,
       type: 'layout',
-    },
-    isOpen: true,
-    onClose: () => {},
-  },
-  parameters: {
-    a11y: {
-      config: {
-        rules: [
-          {
-            id: 'aria-allowed-attr',
-            enabled: true,
-            selector: '[role="dialog"]',
-          },
-        ],
-      },
-    },
-  },
-};
-
-export const WithDataViz: Story = {
-  args: {
-    asset: {
-      ...sampleAsset,
-      type: 'dataviz',
     },
     isOpen: true,
     onClose: () => {},
