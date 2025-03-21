@@ -9,4 +9,5 @@ export interface Asset {
   businessQuestions?: string[];
   amountOfPages?: number;
   hasVisuals?: boolean;
+  needsApproval?: boolean;
 } 

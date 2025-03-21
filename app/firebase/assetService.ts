@@ -30,7 +30,8 @@ const convertToAsset = (doc: DocumentData): Asset => {
     hits: data.hits,
     businessQuestions: data.businessQuestions || [],
     amountOfPages: data.amountOfPages,
-    hasVisuals: data.hasVisuals
+    hasVisuals: data.hasVisuals,
+    needsApproval: data.needsApproval || false
   };
 };
 
