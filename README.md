@@ -8,6 +8,8 @@ A modern web application for managing and visualizing business assets, built wit
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **Charts**: Recharts
+- **Database**: Firebase & Firestore
+- **Store Management**: Zustand 4.4
 - **Testing**: 
   - Jest
   - React Testing Library
@@ -18,6 +20,8 @@ A modern web application for managing and visualizing business assets, built wit
   - Prettier
   - TypeScript
   - PostCSS
+  - ### Next.js 14
+
 
 ## Features
 
@@ -62,14 +66,20 @@ A modern web application for managing and visualizing business assets, built wit
 
 ```
 asset-library/
-├── app/                    # Next.js app directory
-│   ├── assets/            # Asset-related pages
-│   ├── components/        # Reusable components
-│   │   └── charts/       # Chart components
-│   └── layout.tsx        # Root layout
-├── public/                # Static assets
-├── .storybook/           # Storybook configuration
-└── types/                # TypeScript type definitions
+├── app/                    # Main application code
+│   ├── components/        # Reusable UI components
+│   ├── hooks/            # Custom React hooks
+│   ├── data/            # Data management
+│   ├── assets/          # Static assets
+│   ├── api/             # API routes
+│   ├── store/           # Zustand state management
+│   ├── firebase/        # Firebase configuration
+│   ├── import/          # Asset import functionality
+│   └── types/           # TypeScript type definitions
+├── scripts/              # Utility scripts
+├── types/                # Global TypeScript types
+├── public/              # Static files
+└── .storybook/          # Storybook configuration
 ```
 
 ## Testing
@@ -81,14 +91,3 @@ The project uses a combination of testing tools:
 - **Storybook**: For component development and testing
 - **Vitest**: For Storybook interaction tests
 
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
