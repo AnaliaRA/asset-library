@@ -20,6 +20,12 @@ const firebaseConfig = {
 console.log('Firebase config keys:', Object.keys(firebaseConfig));
 console.log('Are all config values present?', Object.values(firebaseConfig).every(Boolean));
 
+// Initialize Firebase only if all config values are present
+if (!Object.values(firebaseConfig).every(Boolean)) {
+  console.error('Missing Firebase configuration. Please check your environment variables.');
+  console.log('Available config keys:', Object.keys(firebaseConfig));
+}
+
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app); 
