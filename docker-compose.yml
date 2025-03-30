@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_FIREBASE_API_KEY=AIzaSyA8vNIHaQ2p2Rb6HRG2lkJOfcflsJr-IC0
+      - NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=asset-library-01.firebaseapp.com
+      - NEXT_PUBLIC_FIREBASE_PROJECT_ID=asset-library-01
+      - NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=asset-library-01.firebasestorage.app
+      - NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=238110667485
+      - NEXT_PUBLIC_FIREBASE_APP_ID=1:238110667485:web:17c394ef3a0c251c09a134
+      - FIREBASE_AUTH_EMULATOR_HOST=firebase:9099
+      - FIRESTORE_EMULATOR_HOST=firebase:8080
+    depends_on:
+      - firebase
+
+  firebase:
+    image: andreysenov/firebase-tools
+    ports:
+      - "8080:8080"  # Firestore emulator
+      - "9099:9099"  # Auth emulator
+      - "4000:4000"  # Emulator UI
+    volumes:
+      - ./firebase.json:/firebase/firebase.json
+      - ./firestore.rules:/firebase/firestore.rules
+      - ./firebase:/firebase/data
+    working_dir: /firebase
+    command: firebase emulators:start --project demo-project --import=/firebase/data --export-on-exit 
