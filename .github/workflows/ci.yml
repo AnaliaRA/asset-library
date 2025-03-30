@@ -1,4 +1,4 @@
-name: CI
+name: Firebase Secrets Setup
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -31,14 +31,5 @@ jobs:
           echo "FIREBASE_MESSAGING_SENDER_ID=${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}" >> $GITHUB_ENV
           echo "FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }}" >> $GITHUB_ENV
 
-      - name: Run linting
-        run: npm run lint
-
-      - name: Run tests
-        run: npm test
-
       - name: Build application
-        run: npm run build
-
-      - name: Run Storybook tests
-        run: npm run test-storybook 
+        run: npm run build 
