@@ -1,1 +1,1 @@
-export { db } from './secrets'; 
+export { db, auth } from './firebase'; 
