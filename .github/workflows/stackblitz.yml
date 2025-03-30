@@ -1,0 +1,27 @@
+name: Set up StackBlitz Environment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create .env file
+        run: |
+          echo "FIRESTORE_EMULATOR_HOST=${{ secrets.FIRESTORE_EMULATOR_HOST }}" >> .env.local
+          echo "NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}" >> .env.local
+
+      - name: Commit and push .env.local
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add .env.local
+          git commit -m "Add environment variables from GitHub Actions" || echo "No changes to commit"
+          git push
